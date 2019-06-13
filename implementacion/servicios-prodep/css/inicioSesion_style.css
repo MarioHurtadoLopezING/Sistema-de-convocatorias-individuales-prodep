@@ -1,0 +1,44 @@
+body{
+    font-family: sans-serif;
+    background-color:ghostwhite;
+}
+.center{
+    text-align: center;
+}
+.datosUsuario{
+    width: 15.625em;
+    margin-top: 0.1875em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.center-div{
+    margin-left: auto;
+    margin-right: auto;
+}
+.inline{
+    display:inline;
+}
+.imgUsuario{
+    width: 13%;
+}
+.margenSuperior{
+    margin-top: 1.875em;
+}
+.logo{
+    margin-top: 0.25em;
+    margin-left:  0.625em;
+    width: 18%;
+}
+.logoRegistro{
+    margin-top: 0.25em;
+    margin-left:  0.625em;
+    width: 13%;
+}
+.etiqueta{
+    width: 5.6em;
+}
+.datosRegistro{
+    width: 40em;
+    margin-top: 0.1875em;
+}

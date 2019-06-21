@@ -3,6 +3,7 @@ class Region{
 
     private $idRegion;
     private $nombre;
+    private $iRegion;
 
     public function __contruct(){
 
@@ -23,15 +24,22 @@ class Region{
         $this->nombre = $nombre;
     }
 
-    public function registrar(){
+    public function setIRegion($iRegion){
+        $this->iRegion = $iRegion;
+    }
 
+    public function getIRegion(){
+        return $this->iRegion;
+    }
+
+    public function registrar(){
+        return $this->iRegion->registrar($this);
     }
 
     public function editar(){
-
+        return $this->iRegion->editar($this);
     }
-
     public function obtenerRegiones(){
-        
+        return $this->iRegion->obtenerRegiones();
     }
 }

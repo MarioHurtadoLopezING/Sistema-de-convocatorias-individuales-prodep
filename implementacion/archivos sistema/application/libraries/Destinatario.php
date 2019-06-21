@@ -3,6 +3,7 @@ class Destinatario{
 
 	private $idDestinatario;
 	private $nombre;
+	private $iDestinatario;
 
 	public function __construct(){
 
@@ -22,10 +23,19 @@ class Destinatario{
 	public function setNombre($nombre){
 		$this->nombre = $nombre;
 	}
-	public function registrar(){
+	
+	public function setIDestinatario($iDestinatario){
+		$this->iDestinatario = $iDestinatario;
+	}
 
+	public function getIDestionatario(){
+		return $this->iDestinatario;
+	}
+
+	public function registrar(){
+		return $this->iDestinatario->registrar($this);
 	}
 	public function editar(){
-		
+		return $this->iDestinatario->editar($this);
 	}
 }

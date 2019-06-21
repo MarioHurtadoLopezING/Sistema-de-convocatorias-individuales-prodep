@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="<?=base_url('css/inicioSesion_style.css');?>" type="text/css">
 </head>
 <body>
-    <img src="<?=base_url('recursos/prodep.png');?>" class="logoRegistro"/>
+    <img src="<?=base_url('recursos/prodep.svg');?>" class="logoRegistro"/>
     <div class="center">
-        <img src="<?=base_url('recursos/usuario.png');?>" class="imgUsuario"/>
+        <img src="<?=base_url('recursos/usuario.svg');?>" class="imgUsuario"/>
         <h1>Registro de usuarios</h1>
     </div>
     <form class="margenSuperior">

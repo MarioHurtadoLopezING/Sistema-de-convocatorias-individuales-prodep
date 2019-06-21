@@ -4,6 +4,7 @@ class Becario{
 	private $idBecario;
 	private $nombre;
 	private $fechaInscripcion;
+	private $idBecario;
 
 	public function __contruct(){
 
@@ -31,11 +32,26 @@ class Becario{
 		return $this->fechaInscripcion;
 	}
 
-	public function registrar(){
+	public function setIBecario($iBecario){
+		$this->iBecario = $iBecario;
+	}
 
+	public function getIBecario(){
+		return $this->iBecario;
+	}
+
+	public function registrar(){
+		return $this->iBecario->registrar($this);
 	}
 	
 	public function editar(){
+		return $this->iBecario->editar($this);
+	}
 
+	public function obtenerBecarioId($idBecario){
+		return $this->iBecario->obtenerBecarioId($idBecario);
+	}
+	public function obtenerBecarios(){
+		return $this->iBecario->obtenerBecarios();
 	}
 }

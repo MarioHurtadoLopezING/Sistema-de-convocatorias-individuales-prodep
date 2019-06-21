@@ -3,6 +3,7 @@ class EntidadEducativa{
     
     private $idEntidadEducativa;
     private $nombre;
+    private $iEntidadEducativa;
     
     public function __construct(){
         
@@ -24,12 +25,16 @@ class EntidadEducativa{
         return $this->nombre;
     }
 
-    public function registrar(){
+    public function setIEntidadEducativa($iEntidadEducativa){
+        $this->iEntidadEducativa = $iEntidadEducativa;
+    }
 
+    public function registrar(){
+        $this->iEntidadEducativa->registrar($this);
     }
 
     public function editar(){
-
+        $this->iEntidadEducativa->editar($this);
     }
 
 }

@@ -5,6 +5,7 @@ class Personal{
     private $nombre;
     private $correo;
     private $rol;
+    private $iPersonal;
     
     public function __construct(){
         
@@ -42,12 +43,20 @@ class Personal{
         $this->rol = $rol;
     }
 
-    public function registrar(){
+    public function setIPersonal($iPersonal){
+        $this->iPersonal = $iPersonal;
+    }
 
+    public function getIPersonal(){
+        return $this->iPersonal;
+    }
+
+    public function registrar(){
+        return $this->iPersonal->registrar($this);
     }
 
     public function modificar(){
-
+        return $this->iPersonal->modificar($this);
     }
 
 }

@@ -5,6 +5,7 @@ class Usuario{
     private $nombreUsuario;
     private $contrasena;
     private $personal;
+    private $iUsuario;
     
     public function __construct(){
         
@@ -42,15 +43,23 @@ class Usuario{
         return $this->personal;
     }
 
-    public function registrarUsuario(){
+    public function getIUsuario(){
+        return $this->iUsuario;
+    }
 
+    public function setIUsuario($iUsuario){
+        $this->iUsuario = $iUduario;
+    }
+
+    public function registrarUsuario(){
+        return $this->iUsuario->registrar($this);
     }
 
     public function modificar(){
-
+        return $this->iUsuario->modificar($this);
     }
 
-    public function iniciarSesion(){
-
+    public function iniciarSesion($usuario,$contrasena){
+        return $this->iUsuario->iniciarSesion($usuario,$contrasena);
     }
 }

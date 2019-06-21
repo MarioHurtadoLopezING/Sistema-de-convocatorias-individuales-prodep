@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <img src="<?=base_url('recursos/prodep.png')?>" class="logo"/>
+        <img src="<?=base_url('recursos/prodep.svg')?>" class="logo"/>
         <h1  class="center">Iniciar sesión</h1>
     </div>
     <form>

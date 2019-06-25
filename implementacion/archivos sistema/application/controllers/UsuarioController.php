@@ -23,6 +23,9 @@ class UsuarioController extends CI_Controller{
                 $this->load->view("pages/registrar_usuario_view");
             }else if($pagina == 'login'){
                 $this->load->view("pages/inicio_sesion_view");
+            }else if($pagina == 'menuPrincipal'){
+                $this->load->view("pages/menu_principal_view");
+                 $this->load->view("pages/nuevo_proyecto_view");
             }
         }
     }

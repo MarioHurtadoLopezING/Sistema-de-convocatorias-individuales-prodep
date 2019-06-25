@@ -1,0 +1,142 @@
+/*rgb(248,248,255);*/
+#cabecera{
+     height: 4em;
+     position: absolute;
+     right: 0px;
+     left: 0px;
+     margin-left: 12em;
+}
+#fotoUsuario > img{
+    width: 3.2em;
+    height: 3.2em;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin-right: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+#nombreUsuario{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-right: 4.0em;
+    margin-top: 1em;
+    font-size: large;
+}
+#tituloPagina{
+    position: absolute;
+    height: 100%;
+    margin-left: 3em;
+}
+#separador{
+    position: absolute;
+    margin-top: 4em;
+    left: 0px;
+    right: 0px;
+    margin-left: 12em;
+    border-color: #C6C4C3;
+    border-width: .3px;
+    border-style: solid;
+}
+#separadorMenu{
+    position: absolute;
+    border-color: #C6C4C3;
+    border-width: .3px;
+    border-style: solid;
+    top: 0px;
+    bottom: 0px;
+    margin-left: 12em;
+
+}
+#menu{
+    position: absolute;
+    background-color:#F2F2F2;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 12em;
+    height: 100%;
+}
+#menu > img{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 90%;
+}
+.separadorMenuImagen{
+    margin-top: 2em;
+}
+.menuElemento{
+    width: 100%;
+    height: 3em;    
+}
+.menuElementoSalir{
+    position: absolute;
+    bottom: 0px;    
+}
+.menuElemento:hover {
+    background-color: #d6d6d6;
+}
+.menuElemento:active {
+    background-color: #E9E8E8;
+}
+.textoElementoMenu{
+    position: absolute;
+    margin-top: .5em;
+    margin-left: 1em;
+
+}
+.imagenElementoMenu{
+    position: absolute;
+    margin-top: 4px;
+    right: 0px;
+}
+.imagenElementoMenu > img{
+    width: 2em;
+    height: 2em;
+    margin-right: .5em;
+}
+.menuElemento > span{
+    border-top: 3em;
+}
+@media screen and (max-width: 900px){
+    .esconder{
+        display: none;
+    }
+    #cabecera{
+        margin-left: 5em;
+    }
+    #separador{
+        margin-left: 5em;
+    }
+    #menu{
+        width: 5em;
+    }
+    #separadorMenu{
+        margin-left: 5em;
+    }
+}
+.iconoItem{
+    max-width: 3.4375em;
+    padding-top: 0.3125em;
+}
+.item{
+    background-color: whitesmoke;
+    border-radius: 0.625em;
+    color: black;
+    display: inline-block;
+    height: 7em;
+    margin-left: 0.3125em;
+    margin-right: 0.3125em;
+    margin-bottom: 0.3125em;
+    width: 7em;
+}
+.item:hover{
+    background-color: gainsboro;
+}
+.item:active{
+    background-color: lightGray;
+}
+.center{
+    text-align: center;
+}

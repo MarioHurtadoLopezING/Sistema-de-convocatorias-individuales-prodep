@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>Nuevo coordinador</title>
-    <link rel="stylesheet" href="<?=base_url('css/bootstrap.min.css');?>">
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.min.js"></script> 
+    <link rel="stylesheet" href="<?=base_url('css/bootstrap.min.css');?>" type="text/css">
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script> 
     <link rel="stylesheet" href="<?=base_url('css/inicioSesion_style.css');?>" type="text/css">
 </head>
 <body>
-    <img src="<?=base_url('recursos/prodep.svg');?>" class="logoRegistro"/>
+    <img src="<?=base_url('recursos/prodep.png');?>" class="logoRegistro"/>
     <div class="center">
         <img src="<?=base_url('recursos/usuario.svg');?>" class="imgUsuario"/>
         <h1>Registro de usuarios</h1>

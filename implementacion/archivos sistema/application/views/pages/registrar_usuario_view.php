@@ -21,8 +21,8 @@
         <input type="password" name="txtContrasena" placeholder="Contraseña" class="datosRegistro form-control center-div" required/>
         <input type="password" name="txtConfirmar" placeholder="Confirmar" class="datosRegistro form-control center-div" required/>
         <div class="center margenSuperior">
-                <input type="submit" name="btnRegistrar" value="Registrar" class="datosUsuario btn btn-success inline"/>
-                <a href="<?=base_url();?>index.php/usuarioController/vista/login"><input type="button" name="btnCancelar" value="Cancelar" class="datosUsuario btn btn-danger inline"/></a>
+                <input type="submit" name="btnRegistrar" value="Registrar" class="datosUsuario btn btn1 btn-success inline"/>
+                <a href="<?=base_url();?>index.php/usuarioController/vista/login"><input type="button" name="btnCancelar" value="Cancelar" class="datosUsuario btn btn-danger inline btn1"/></a>
         </div>
     </form>
 </body>

@@ -14,10 +14,10 @@ class UsuarioController extends CI_Controller{
        $this->vista();
     }
 
-    public function vista($pagina = 'login'){
+    public function vista($pagina = 'login', $contenido ='nuevoProyecto'){
         $id = $this->session->userdata('id');
         if($id){
-            $this->load->view('pages/principal_usuario_view');
+             $this->load->view("pages/menu_principal_view");
         }else{
             if($pagina =='registrarUsuario'){
                 $this->load->view("pages/registrar_usuario_view");
@@ -25,9 +25,17 @@ class UsuarioController extends CI_Controller{
                 $this->load->view("pages/inicio_sesion_view");
             }else if($pagina == 'menuPrincipal'){
                 $this->load->view("pages/menu_principal_view");
-                 $this->load->view("pages/nuevo_proyecto_view");
+                $this->contenidoPagina($contenido);
             }
         }
+    }
+
+    private function contenidoPagina($contenido = 'nuevoProyecto'){
+        if($contenido == 'nuevoProyecto'){
+            $this->load->view("pages/nuevo_proyecto_view");
+        }else if ($contenido == 'consultarProyectos'){
+            $this->load->view("pages/consultar_proyectos_view");
+        } 
     }
 
 }

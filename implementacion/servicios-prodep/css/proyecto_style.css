@@ -4,6 +4,7 @@
 	margin-left: 12em;
 	width: calc(100% - 12em);
 	height: calc(100% - 4em);
+	overflow: auto;
 }
 .etiqueta{
 	width: 10em;
@@ -45,6 +46,24 @@
 }
 @media screen and (max-width: 900px){
 	.contenido{
-		margin-left: 5em;
+		right: 0px;
+		margin-left: 0em;
+		width: calc(100% - 5em);
+	}
+	.esconder{
+	    display: none;
+	}
+	.tamano{
+		width: 90%;
+	}
+	.tamanoBtn{
+		width: 75%;
+	}
+	.boton{
+		width: 90%;
+		display: inline-block;
+	}
+	.margin-sup{
+		margin-top: 3em;
 	}
 }

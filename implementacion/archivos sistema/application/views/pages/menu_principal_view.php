@@ -56,19 +56,22 @@
 					<h4 class="modal-title center">Proyectos</h4>
 				</div>
 					<div class="modal-body center">
-						<div class="item">
-							<div class="center">
-								<img src="<?=base_url('recursos/agregar-documento.svg')?>" class="iconoItem">
-							</div>						
-							<span class="center">agregar proyecto</span>
-						</div>
-
-						<div class="item">
-							<div class="center">
-								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
+						 <a href="<?=base_url();?>index.php/usuarioController/vista/menuPrincipal/nuevoProyecto">
+							<div class="item">
+								<div class="center">
+									<img src="<?=base_url('recursos/agregar-documento.svg')?>" class="iconoItem">
+								</div>						
+								<span class="center">agregar proyecto</span>
 							</div>
-							<span class="center">consultar registros</span>
-						</div>   
+						</a>
+						 <a href="<?=base_url();?>index.php/usuarioController/vista/menuPrincipal/consultarProyectos">
+							<div class="item">
+								<div class="center">
+									<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
+								</div>
+								<span class="center">consultar registros</span>
+							</div>  
+						</a>	 
 					</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

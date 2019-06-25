@@ -42,3 +42,18 @@ body{
     width: 40em;
     margin-top: 0.1875em;
 }
+@media screen and (max-width: 900px){
+    .datosRegistro{
+        width: 90%;
+    }
+    .btn1{
+        width: 90%;
+        display: inline-block;
+    }
+    .imgUsuario{
+        width: 25%;
+    }
+    .logoRegistro{
+        width: 25%;
+    }
+}

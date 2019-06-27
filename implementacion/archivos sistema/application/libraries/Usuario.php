@@ -19,11 +19,11 @@ class Usuario{
         $this->idUsuario = $idUsuario;
     }
     
-    public function getNombreUsuario(){
+    public function getNombre(){
         return $this->nombreUsuario;
     }
 
-    public function setNombreUsuario($nombreUsuario){
+    public function setNombre($nombreUsuario){
         $this->nombreUsuario = $nombreUsuario;
     }
     
@@ -48,18 +48,18 @@ class Usuario{
     }
 
     public function setIUsuario($iUsuario){
-        $this->iUsuario = $iUduario;
+        $this->iUsuario = $iUsuario;
     }
 
-    public function registrarUsuario(){
-        return $this->iUsuario->registrar($this);
+    public function registrar(){
+        return $this->iUsuario->registrarUsuario($this);
     }
 
     public function modificar(){
         return $this->iUsuario->modificar($this);
     }
 
-    public function iniciarSesion($usuario,$contrasena){
-        return $this->iUsuario->iniciarSesion($usuario,$contrasena);
+    public function iniciarSesion($nombreUsuario,$contrasena){
+        return $this->iUsuario->iniciarSesion($nombreUsuario,$contrasena);
     }
 }

@@ -12,10 +12,10 @@
 <body>
 	<header id="cabecera">
 		<div id="tituloPagina">
-			<h2>Proyectos registrados</h2>
+			<h2><?php echo $tituloPagina; ?></h2>
 		</div>
 		<div id="nombreUsuario">
-			<span class="esconder">Mario Hurtado López</span>
+			<span class="esconder"><?php echo $nombrePersonal; ?></span>
 		</div>
 		<div id="fotoUsuario">
 			<img src="<?=base_url('recursos/usuario.svg')?>">
@@ -40,10 +40,12 @@
 			<div class="textoElementoMenu"><span class="esconder">Registros</span></div>
 			<div class="imagenElementoMenu"><img src="<?=base_url('recursos/anadir.svg')?>"></div>
 		</div>
-		<div class="menuElemento menuElementoSalir">
-			<div class="textoElementoMenu"><span class="esconder">Salir</span></div>
-			<div class="imagenElementoMenu"><img src="<?=base_url('recursos/logout.svg')?>"></div>
-		</div>
+		<a href="<?=base_url();?>index.php/UsuarioController/cerrarSesion">
+			<div class="menuElemento menuElementoSalir">
+				<div class="textoElementoMenu"><span class="esconder">Salir</span></div>
+				<div class="imagenElementoMenu"><img src="<?=base_url('recursos/logout.svg')?>"></div>
+			</div>
+		</a>
 	</div>
 	<div id="separadorMenu">
 	</div>
@@ -56,7 +58,7 @@
 					<h4 class="modal-title center">Proyectos</h4>
 				</div>
 					<div class="modal-body center">
-						 <a href="<?=base_url();?>index.php/usuarioController/vista/menuPrincipal/nuevoProyecto">
+						 <a href="<?=base_url();?>index.php/ProyectoController/vista/nuevoProyecto">
 							<div class="item">
 								<div class="center">
 									<img src="<?=base_url('recursos/agregar-documento.svg')?>" class="iconoItem">
@@ -64,7 +66,7 @@
 								<span class="center">agregar proyecto</span>
 							</div>
 						</a>
-						 <a href="<?=base_url();?>index.php/usuarioController/vista/menuPrincipal/consultarProyectos">
+						 <a href="<?=base_url();?>index.php/ProyectoController/vista/consultarProyectos">
 							<div class="item">
 								<div class="center">
 									<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">

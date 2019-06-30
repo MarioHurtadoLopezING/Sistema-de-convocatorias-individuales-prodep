@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 interface_exists('IUsuario', FALSE) OR require_once(APPPATH.'libraries/interfaces/IUsuario.php');
 
-class UsuarioModelo implements IUsuario{
+class UsuarioModelo extends CI_Model implements IUsuario{
 	
 	public function __get($attr) {
         return CI_Controller::get_instance()->$attr;
@@ -39,10 +39,5 @@ class UsuarioModelo implements IUsuario{
 	    	$usuario->setIdUsuario(0);
     	}
     	return $usuario;
-
-
-
-
-
     }
 }

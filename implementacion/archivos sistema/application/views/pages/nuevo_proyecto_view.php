@@ -1,11 +1,35 @@
+	<script>
+		$(document).ready(function(){
+			buscarDocente();
+		});
+		function buscarDocente(){
+			$('#buscarDocente').on('click',function (event) {
+				var correoDocente = $('#correoDocente').val();
+				$.ajax({
+					method: "POST",
+					async: true,
+					cache: false,
+					dataType: 'json',
+					timeout: 30000,
+					url: "<?php echo site_url('DocenteController/obtenerDocente'); ?>",
+					data: { 'correo': correoDocente}
+				}).done(function(docenteJSON) {
+					if(docenteJSON.idDocente > 0){
+						$('#correoDocente').val(docenteJSON.nombreDocente);
+					}else{
+						alert(docenteJSON.mensaje);
+					}
+				});
+			});
+		}
+	</script>
+
 	<div class="contenido center">
 		<form class="margin-sup">
 			<div class="margin">
-				<form>
-					<span class="etiqueta esconder">Docente:</span>
-					<input type="input" name="" placeholder="Número de personal del docente" class="textbox tamanoBtn">
-					<input type="submit" name="buscar" value="Buscar" class="btn btn-warning">
-					</form>
+				<span class="etiqueta esconder">Docente:</span>
+				<input type="input" name="correoDocente" placeholder="Correo personal del docente" class="textbox tamanoBtn" id="correoDocente">
+				<button type="button" name="buscar" value="Buscar" class="btn btn-warning" id="buscarDocente">Buscar</button>
 			</div>
 			<div class="margin">
 				<span class="etiqueta esconder">Región:</span>

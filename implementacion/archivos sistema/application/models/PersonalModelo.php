@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 interface_exists('IUsuario', FALSE) OR require_once(APPPATH.'libraries/interfaces/IPersonal.php');
 
-class PersonalModelo implements IPersonal{
+class PersonalModelo extends CI_Model implements IPersonal{
 	
  	public function __get($attr) {
         return CI_Controller::get_instance()->$attr;
@@ -20,10 +20,10 @@ class PersonalModelo implements IPersonal{
 		);
 		return $this->db->insert('personal',$data);
 	}
-    
     public function modificar($personal){
 
     }
+
     public function obtenerPersonalCorreo($correo){
     	$personal = new Personal();
     	$consulta = $this->db->get_where('personal',array('per_correo'=>$correo));
@@ -38,5 +38,21 @@ class PersonalModelo implements IPersonal{
 	    	$personal->setIdPersonal(0);
     	}
     	return $personal;
+    }
+
+    public function obtenerPersonalId($idPersonal){
+        $personal = new Personal();
+        $consulta = $this->db->get_where('personal',array('per_id'=>$idPersonal));
+        if($consulta->num_rows() > 0){
+            $fila = $consulta->row();
+            $personal->setIdPersonal($fila->per_id);
+            $personal->setNombre($fila->per_nombre);
+            $personal->setCorreo($fila->per_correo);
+            $personal->setRol($fila->per_rol);
+            $personal->setIPersonal($this);
+        }else{
+            $personal->setIdPersonal(0);
+        }
+        return $personal; 
     }
 }

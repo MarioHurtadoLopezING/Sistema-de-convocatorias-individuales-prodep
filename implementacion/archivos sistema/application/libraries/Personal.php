@@ -58,6 +58,9 @@ class Personal{
     public function modificar(){
         return $this->iPersonal->modificar($this);
     }
+    public function obtenerPersonalId($idPersonal){
+        return $this->iPersonal->obtenerPersonalId($idPersonal);
+    }
     public function obtenerPersonalCorreo(){
         return $this->iPersonal->obtenerPersonalCorreo($this->correo);
     }

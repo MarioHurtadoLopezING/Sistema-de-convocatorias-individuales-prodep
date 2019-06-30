@@ -21,5 +21,8 @@
     <div id="divRegistroUsuario" class="center margenSuperior">
         <a href="<?=base_url();?>index.php/usuarioController/vista/registrarUsuario">Crear cuenta.</a>
     </div>
+    <div id="divRegistroUsuario" class="center margenSuperior">
+       <span><?php echo $mensaje;?></span>
+    </div>
 </body>
 </html>

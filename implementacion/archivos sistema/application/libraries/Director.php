@@ -1,5 +1,5 @@
 <?php
-class Director extends PersonalAdministrador{
+class Director extends PersonalAdministrativo{
 
     public function __construct(){
         
@@ -13,8 +13,7 @@ class Director extends PersonalAdministrador{
 
     }
 
-    public function obtenerPersonal($idPersonal){
+    public function obtenerPersonalCorreo($correo){
 
     }
-
 }

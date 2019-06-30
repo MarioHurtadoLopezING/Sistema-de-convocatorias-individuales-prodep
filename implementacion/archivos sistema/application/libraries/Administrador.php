@@ -1,5 +1,5 @@
 <?php
-class Administrador extends PersonalAdministrador{
+class Administrador extends PersonalAdministrativo{
 
 	private $iAdministrador;
 
@@ -23,14 +23,7 @@ class Administrador extends PersonalAdministrador{
     	return $this->iAdministrador->editarAdministrador($this);
     }
 
-    public function obtenerPersonalId($idPersonal){
-    	return $this->iAdministrador->obtenerAdministrador($idPersonal);
-    }
-    
     public function obtenerPersonalCorreo($correo){
     	return $this->iAdministrador->obtenerPersonalCorreo();
     }
-
-    public function obtener
-
 }

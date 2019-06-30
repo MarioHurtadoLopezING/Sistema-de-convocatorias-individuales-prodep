@@ -73,6 +73,7 @@
 .menuElementoSalir{
     position: absolute;
     bottom: 0px;    
+    color: black;
 }
 .menuElemento:hover {
     background-color: #d6d6d6;

@@ -18,28 +18,18 @@ class UsuarioController extends CI_Controller{
        $this->vista();
     }
 
-    public function vista($pagina = 'login', $contenido ='consultarProyectos'){
-        $id = $this->session->userdata('id');
-        if($id){
-             $this->load->view("pages/menu_principal_view");
+    public function vista($pagina = 'login'){
+        if($this->session->userdata('idUsuario')){
+            redirect('ProyectoController');
         }else{
-            if($pagina =='registrarUsuario'){
+            if($pagina == 'login'){
+                $this->mostrarInicioSesion();
+            }else if($pagina =='registrarUsuario'){
                 $this->load->view("pages/registrar_usuario_view");
-            }else if($pagina == 'login'){
-                $this->load->view("pages/inicio_sesion_view");
-            }else if($pagina == 'menuPrincipal'){
-                $this->load->view("pages/menu_principal_view");
-                $this->contenidoPagina($contenido);
+            }else{
+                show_404();
             }
         }
-    }
-
-    private function contenidoPagina($contenido = 'consultarProyectos'){
-        if($contenido == 'nuevoProyecto'){
-            $this->load->view("pages/nuevo_proyecto_view");
-        }else if ($contenido == 'consultarProyectos'){
-            $this->load->view("pages/consultar_proyectos_view");
-        } 
     }
 
     public function registrarPersonal(){
@@ -83,11 +73,21 @@ class UsuarioController extends CI_Controller{
         $usuario->setIUsuario(new UsuarioModelo());
         $usuario = $usuario->iniciarSesion($nombreUsuario, $contrasena);
         if($usuario->getIdUsuario() != 0){
-            $this->session->set_userdata('id',$usuario->getIdUsuario());
-            $this->vista('menuPrincipal');
+            $this->session->set_userdata('idUsuario',$usuario->getIdUsuario());
+            $this->session->set_userdata('idPersonal',$usuario->getPersonal());
+            redirect('UsuarioController/vista');
         }else{
-            echo "el usuario no existe";
+            $this->mostrarInicioSesion('El nombre de usuario y/o contraseña son incorrectos.');
         }
     }
 
+    private function mostrarInicioSesion($mensaje = ''){
+        $this->load->view("pages/inicio_sesion_view",array('mensaje'=>$mensaje));
+    }
+
+    public function cerrarSesion(){
+        $this->session->unset_userdata('idUsuario');
+        $this->session->unset_userdata('idPersonal');
+        redirect('UsuarioController/vista');
+    }
 }

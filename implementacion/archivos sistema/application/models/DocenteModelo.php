@@ -13,11 +13,11 @@ class DocenteModelo extends CI_Model implements IDocente{
     	$this->load->database('prodep');
     }
 
-	public function registrarPersonal(){
+	public function registrarPersonal($docente){
 
 	}
     
-    public function editarPersonal(){
+    public function editarPersonal($docente){
 
     }
 

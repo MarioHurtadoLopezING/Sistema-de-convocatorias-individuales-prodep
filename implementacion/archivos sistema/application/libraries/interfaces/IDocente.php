@@ -1,8 +1,8 @@
 <?php
 interface IDocente{
 	
-    public function registrarPersonal();
-    public function editarPersonal();
+    public function registrarPersonal($docente);
+    public function editarPersonal($docente);
     public function obtenerPersonalCorreo($correo);
     public function obtenerPersonalNumeroregistro($numeroPersonal);
 }

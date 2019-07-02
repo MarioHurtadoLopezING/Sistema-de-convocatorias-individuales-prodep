@@ -11,8 +11,11 @@ class ProyectoController extends CI_Controller{
         $this->load->library('session');
         $this->load->library('Usuario');
         $this->load->library('Personal');
+        $this->load->library('Proyecto');
         $this->load->model('PersonalModelo','personalModelo');
         $this->load->model('UsuarioModelo','usuarioModelo');
+        $this->load->model('ProyectoModelo','proyectoModelo');
+
     }
     
     public function index(){
@@ -40,5 +43,52 @@ class ProyectoController extends CI_Controller{
     	$personal = new Personal();
     	$personal->setIPersonal(new PersonalModelo());
     	return $personal->obtenerPersonalId($this->session->userdata('idPersonal'));
-    } 
+    }
+
+    public function registrarProyecto(){
+        $registrado = false;
+        if($this->session->userdata('idUsuario')){
+            $post = json_decode(file_get_contents('php://input'));
+            $idDocente = $post->idDocente;
+            $idDirector =$post->idDirector;
+            $idAdministrador = $post->idAdministrador;
+            $fechaInicioApoyo = $post->fechaInicioApoyo;
+            $folioProdep = $post->folioProdep;
+            $claveProgramatica = $post->claveProgramatica;
+            $oficioAutorizacion = $post->oficioAutorizacion;
+            $numeroDependencia = $post->numeroDependencia;
+            $idRegion = $post->idRegion;
+            $idArea = $post->idArea;
+            $idEntidad = $post->idEntidad;
+            $idConvocatoria = $post->idConvocatoria;
+            $proyecto = new Proyecto();
+            $proyecto->setClaveProgramatica($claveProgramatica);
+            $proyecto->setFolioProdep($folioProdep);
+            $proyecto->setOficioAutorizacion($oficioAutorizacion);
+            $proyecto->setInicioApoyo($fechaInicioApoyo);
+            $proyecto->setNumeroDependencia($numeroDependencia);
+            $proyecto->setDocente($idDocente);
+            $proyecto->setAdministrador($idAdministrador);
+            $proyecto->setDirector($idDirector);
+            $proyecto->setEntidadEducativa($idEntidad);
+            $proyecto->setPersonal($this->session->userdata('idPersonal'));
+            $proyecto->setAreaEducativa($idArea);
+            $proyecto->setRegion($idRegion);
+            $proyecto->setConvocatoria($idConvocatoria);
+            $proyecto->setIProyecto(new ProyectoModelo());
+            $registrado = $proyecto->registrar();
+        }else{
+            $registrado = false;
+        }
+        echo json_encode(array('estado'=>$registrado));
+    }
+
+    public function obtenerProyectos(){
+        $proyecto = new Proyecto();
+        $proyecto->setIProyecto(new ProyectoModelo());
+        $proyecto = $proyecto->obtenerProyectos();
+        $proyectoJSON = array();
+        $proyectoJSON['proyectos'] = $proyecto;
+        echo json_encode($proyectoJSON);
+    }
 }

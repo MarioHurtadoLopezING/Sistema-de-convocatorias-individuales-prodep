@@ -3,6 +3,7 @@ class Convocatoria{
 
 	private $idConvocatoria;
 	private $nombreConvocatoria;
+	private $iConvocatoria;
 
 	public function __contruct(){
 
@@ -24,15 +25,19 @@ class Convocatoria{
 		return $this->nombreConvocatoria;
 	}
 
-	public function registrar(){
+	public function setIConvocatoria($iConvocatoria){
+		$this->iConvocatoria = $iConvocatoria;
+	}
 
+	public function registrar(){
+		return $this->iConvocatoria->registrar($this);
 	}
 
 	public function editar(){
-
+		return $this->iConvocatoria->editar($this);
 	}
 
 	public function obtenerConvocatorias(){
-		
+		return $this->iConvocatoria->obtenerConvocatorias();
 	}
 }

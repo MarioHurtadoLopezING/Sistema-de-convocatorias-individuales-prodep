@@ -30,11 +30,13 @@ class EntidadEducativa{
     }
 
     public function registrar(){
-        $this->iEntidadEducativa->registrar($this);
+       return $this->iEntidadEducativa->registrar($this);
     }
 
     public function editar(){
-        $this->iEntidadEducativa->editar($this);
+       return $this->iEntidadEducativa->editar($this);
     }
-
+    public function obtenerEntidadesEducativas(){
+        return $this->iEntidadEducativa->obtenerEntidadesEducativas();
+    }
 }

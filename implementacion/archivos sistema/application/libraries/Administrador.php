@@ -1,4 +1,8 @@
 <?php
+
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once(APPPATH.'libraries/PersonalAdministrativo.php');
+
 class Administrador extends PersonalAdministrativo{
 
 	private $iAdministrador;
@@ -16,14 +20,14 @@ class Administrador extends PersonalAdministrativo{
     }
 
     public function registrarPersonal(){
-    	return $this->iAdministrador->registrarAdministrador($this);
+    	return $this->iAdministrador->registrarPersonal($this);
     }
 
     public function editarPersonal(){
-    	return $this->iAdministrador->editarAdministrador($this);
+    	return $this->iAdministrador->editarPersonal($this);
     }
 
     public function obtenerPersonalCorreo($correo){
-    	return $this->iAdministrador->obtenerPersonalCorreo();
+    	return $this->iAdministrador->obtenerPersonalCorreo($correo);
     }
 }

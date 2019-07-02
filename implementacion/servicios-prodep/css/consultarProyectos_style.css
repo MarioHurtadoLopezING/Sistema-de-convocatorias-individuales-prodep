@@ -10,7 +10,7 @@
 .proyectoItem{
 	text-align: left;
 	border-bottom: 1px solid skyblue;
-	height: 4em;
+	height: 5em;
 	width: 100%;
 }
 .proyectoItem:hover{
@@ -20,13 +20,13 @@
     background-color: #C0C4C0;
 }
 .imagenProyectoRegistro{
-	width: 3.3em;
-	height: 4em;
+	width: 4.3em;
+	height: 5em;
 }
 .imagenProyectoRegistroVista{
 	width: 2em;
 	height: 2em;
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 .izquierda{
 	float: left;

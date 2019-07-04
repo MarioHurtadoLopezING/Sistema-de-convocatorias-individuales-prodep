@@ -38,9 +38,8 @@ function cargarProyectosVista(){
 		divProyectoItem.classList.add('proyectoItem');
 		divProyectoItem.appendChild(divLogo());
 		divProyectoItem.appendChild(datosProyecto(proyectosArray[i]));
-		divProyectoItem.appendChild(iconosEdicion("ver"));
-		divProyectoItem.appendChild(iconosEdicion("editar"));
-
+		divProyectoItem.appendChild(iconosEdicion("ver",proyectosArray[i]));
+		divProyectoItem.appendChild(iconosEdicion("editar",proyectosArray[i]));
 		$("#scrollProyectos").append(divProyectoItem);
 	}	
 }
@@ -77,11 +76,46 @@ function divDatoProyecto(titulo,proyecto){
 	return divNumeroPersonal;
 }
 
-function iconosEdicion(tituloImagen){
+function consultarDatosProyecto(proyecto){
+	console.log(proyecto);
+}
+
+function editarProyecto(proyecto){
+  	$('#modal').modal('show');
+  	console.log(proyecto);
+}
+
+function obtenerProyecto(proyecto){
+	let id =  proyecto['idProyecto'];
+	$.ajax({
+		method: "POST",
+		async: true,
+		cache: false,
+		dataType: 'json',
+		timeout: 30000,
+		url: base_url+"/ProyectoController/obtenerProyecto",
+		data: { 'idProyecto': id}
+	}).done(function(proyectoJSON) {
+		console.log(proyectoJSON);
+	}).fail(function(){
+		console.log("no se pudo");
+	});
+}
+
+function iconosEdicion(tituloImagen,proyecto){
 	let divImagen = document.createElement("div");
 	divImagen.classList.add("imagenProyectoRegistroVista","logo");
 	let imagen = document.createElement("img");
 	imagen.src ="/servicios-prodep/recursos/"+tituloImagen+".svg";
 	divImagen.appendChild(imagen);
+	divImagen.addEventListener('click',function(){
+
+
+		if(tituloImagen == 'ver')
+			consultarDatosProyecto(proyectosJSON);
+		else{
+			editarProyecto(proyectosJSON);	
+		}
+	});
 	return divImagen;
 }

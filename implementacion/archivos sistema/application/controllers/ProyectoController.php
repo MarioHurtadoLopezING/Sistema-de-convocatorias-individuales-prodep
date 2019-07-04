@@ -91,4 +91,18 @@ class ProyectoController extends CI_Controller{
         $proyectoJSON['proyectos'] = $proyecto;
         echo json_encode($proyectoJSON);
     }
+
+    public function obtenerProyecto(){
+        $proyecto = new Proyecto();
+        $proyectoJSON = array();
+        $idProyecto = $this->input->post('idProyecto');
+        if($this->session->userdata('idUsuario')){
+            $proyecto->setIProyecto(new ProyectoModelo());
+            $proyectoJSON['proyecto'] = $proyecto->obtenerProyecto($idProyecto);
+        }else{
+            $proyectoJSON['respuesta'] = "false";
+        }
+        echo json_encode($proyectoJSON);
+    }
+
 }

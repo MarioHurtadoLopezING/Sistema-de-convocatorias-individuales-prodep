@@ -9,11 +9,31 @@
 		<div class="margin-sup">
 			<form>
 				<span>Buscar proyecto:</span>
-				<input type="input" name="" placeholder="Nombre docente / número proyecto..." class="textbox tamano">
+				<input type="input" name="" placeholder="Número de personal del docente / correo" class="textbox tamano">
 				<input type="submit" name="buscar" value="Buscar" class="btn btn-success">
 			</form>
 		</div>
 		<div class="scrollProyectos" id="scrollProyectos">
+		</div>
+	</div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Datos del proyecto</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

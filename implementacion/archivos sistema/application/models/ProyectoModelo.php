@@ -12,6 +12,7 @@ class ProyectoModelo extends CI_Model implements IProyecto{
     public function __construct(){
     	$this->load->database('prodep');
     	$this->load->library('Docente');
+        $this->load->library('Proyecto');
     }
 
 
@@ -60,6 +61,32 @@ class ProyectoModelo extends CI_Model implements IProyecto{
     	return $proyectos;
     }
 
+    public function obtenerProyecto($idProyecto){
+        $proyecto = array();
+        $consulta = $this->db->get_where('proyecto',array('pro_id'=>$idProyecto));
+        if($consulta->num_rows() > 0){
+            $row = $consulta->row();
+            $proyecto['IdProyecto'] = $row->pro_id;
+            $proyecto['ClaveProgramatica'] = $row->pro_claveProgramtica;
+            $proyecto['FolioProdep'] =$row->pro_folioProdep;
+            $proyecto['OficioAutorizacion'] = $row->pro_oficioAutorizacion;
+            $proyecto['InicioApoyo'] = $row->pro_inicioApoyo;
+            $proyecto['Estado'] = $row->pro_estado;
+            $proyecto['NumeroDependencia'] = $row->pro_numeroDependencia;
+            $proyecto['Docente'] = $row->doc_id;
+            $proyecto['Administrador'] = $row->adm_id;
+            $proyecto['Director'] = $row->dir_id;
+            $proyecto['EntidadEducativa'] = $row->ent_id;
+            $proyecto['Personal'] = $row->per_id;
+            $proyecto['AreaEducativa'] = $row->are_id;
+            $proyecto['Region'] = $row->reg_id;
+            $proyecto['Convocatoria'] = $row->con_id;
+        }else{
+            $proyecto['IdProyecto'] = 0;
+        }
+        return $proyecto;
+
+    }
 
     private function obtenerDocenteId($idDocente){
     	$docente = new Docente();

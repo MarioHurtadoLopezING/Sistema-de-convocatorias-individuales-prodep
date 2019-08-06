@@ -1,10 +1,10 @@
-/*rgb(248,248,255);*/
 #cabecera{
-     height: 4em;
-     position: absolute;
-     right: 0px;
-     left: 0px;
-     margin-left: 12em;
+    height: 4em;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    margin-left: 12em;
+    border-bottom: 1px solid  #C6C4C3;
 }
 #fotoUsuario > img{
     width: 3.2em;
@@ -26,28 +26,9 @@
 }
 #tituloPagina{
     position: absolute;
+    top: 0px;
     height: 100%;
     margin-left: 3em;
-}
-#separador{
-    position: absolute;
-    margin-top: 4em;
-    left: 0px;
-    right: 0px;
-    margin-left: 12em;
-    border-color: #C6C4C3;
-    border-width: .3px;
-    border-style: solid;
-}
-#separadorMenu{
-    position: absolute;
-    border-color: #C6C4C3;
-    border-width: .3px;
-    border-style: solid;
-    top: 0px;
-    bottom: 0px;
-    margin-left: 12em;
-
 }
 #menu{
     position: absolute;
@@ -107,14 +88,8 @@
     #cabecera{
         margin-left: 5em;
     }
-    #separador{
-        margin-left: 5em;
-    }
     #menu{
         width: 5em;
-    }
-    #separadorMenu{
-        margin-left: 5em;
     }
 }
 .iconoItem{

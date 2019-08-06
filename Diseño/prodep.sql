@@ -48,12 +48,12 @@ primary key(are_id)
 
 create table if not exists entidadEducativa(
 ent_id int not null auto_increment,
-ent_nombre varchar(50),
+ent_nombre varchar(80),
 primary key(ent_id)
 )ENGINE=INNODB;
 
 create table if not exists region(
-reg_id int not null,
+reg_id int not null auto_increment,
 reg_nombre varchar(50),
 primary key(reg_id)
 )ENGINE=INNODB;

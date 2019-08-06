@@ -21,7 +21,6 @@
 			<img src="<?=base_url('recursos/usuario.svg')?>">
 		</div>
 	</header>
-	<div id="separador"></div>
 	<div id="menu">
 		<img src="<?=base_url('recursos/prodep.png')?>">
 		<div class="menuElemento separadorMenuImagen" id="divProyecto" data-toggle="modal" data-target="#login">
@@ -47,8 +46,6 @@
 			</div>
 		</a>
 	</div>
-	<div id="separadorMenu">
-	</div>
 	<!--Modal de proyectos -->
 	<div id="login" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -57,24 +54,24 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title center">Proyectos</h4>
 				</div>
-					<div class="modal-body center">
-						 <a href="<?=base_url();?>index.php/ProyectoController/vista/nuevoProyecto">
-							<div class="item">
-								<div class="center">
-									<img src="<?=base_url('recursos/agregar-documento.svg')?>" class="iconoItem">
-								</div>						
-								<span class="center">agregar proyecto</span>
+				<div class="modal-body center">
+					 <a href="<?=base_url();?>index.php/ProyectoController/vista/nuevoProyecto">
+						<div class="item">
+							<div class="center">
+								<img src="<?=base_url('recursos/agregar-documento.svg')?>" class="iconoItem">
+							</div>						
+							<span class="center">agregar proyecto</span>
+						</div>
+					</a>
+					 <a href="<?=base_url();?>index.php/ProyectoController/vista/consultarProyectos">
+						<div class="item">
+							<div class="center">
+								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
 							</div>
-						</a>
-						 <a href="<?=base_url();?>index.php/ProyectoController/vista/consultarProyectos">
-							<div class="item">
-								<div class="center">
-									<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
-								</div>
-								<span class="center">consultar registros</span>
-							</div>  
-						</a>	 
-					</div>
+							<span class="center">consultar registros</span>
+						</div>  
+					</a>	 
+				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 				</div>

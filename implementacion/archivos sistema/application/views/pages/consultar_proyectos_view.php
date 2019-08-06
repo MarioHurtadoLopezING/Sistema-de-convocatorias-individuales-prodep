@@ -10,6 +10,7 @@
 			<form>
 				<span>Buscar proyecto:</span>
 				<input type="input" name="" placeholder="Número de personal del docente / correo" class="textbox tamano">
+				
 				<input type="submit" name="buscar" value="Buscar" class="btn btn-success">
 			</form>
 		</div>

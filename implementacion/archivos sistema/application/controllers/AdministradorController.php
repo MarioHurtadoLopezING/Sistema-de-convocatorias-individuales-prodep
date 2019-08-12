@@ -28,4 +28,19 @@ class AdministradorController extends CI_Controller{
     	echo json_encode($administradorJSON);
     }
 
+    public function obtenerAdministradorId(){
+        $idAdministrador = $this->input->post('idAdministrador');
+        $administrador = new Administrador();
+        $administrador->setIAdministrador(new AdministradorModelo());
+        $administrador = $administrador->obtenerPersonalId($idAdministrador);
+        $administradorJSON = array();
+        $administradorJSON['idAdministrador'] = $administrador->getIdPersonal();
+        if($administrador->getIdPersonal() > 0){
+            $administradorJSON['nombreAdministrador'] = $administrador->getNombre();
+        }else{
+            $administradorJSON['mensaje'] = 'El administrador no se encuentra registrado';
+        }
+        echo json_encode($administradorJSON);
+    }
+
 }

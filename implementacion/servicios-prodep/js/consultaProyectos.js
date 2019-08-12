@@ -39,7 +39,10 @@ function cargarProyectosVista(){
 		divProyectoItem.appendChild(divLogo());
 		divProyectoItem.appendChild(datosProyecto(proyectosArray[i]));
 		divProyectoItem.appendChild(iconosEdicion("ver",proyectosArray[i]));
-		divProyectoItem.appendChild(iconosEdicion("editar",proyectosArray[i]));
+		let rutaEdicion = document.createElement('a');
+		rutaEdicion.href = base_url+"/ProyectoController/editarProyecto/"+proyectosArray[i]['idProyecto'];
+		rutaEdicion.appendChild(iconosEdicion("editar",proyectosArray[i]));
+		divProyectoItem.appendChild(rutaEdicion);
 		$("#scrollProyectos").append(divProyectoItem);
 	}	
 }
@@ -76,18 +79,33 @@ function divDatoProyecto(titulo,proyecto){
 	return divNumeroPersonal;
 }
 
-function consultarDatosProyecto(proyecto){
-	console.log(proyecto);
-}
-
-function editarProyecto(proyecto){
-  	$('#modal').modal('show');
-  	console.log(proyecto);
+function consultarDatosProyecto(proyecto, docente){
+	let bodyModal = document.getElementById("bodyModalProyecto");
+	bodyModal.innerHTML = "";
+	let spanNombreDocente = document.createElement('h4');
+	spanNombreDocente.innerHTML = "Nombre docente: "+docente.nombre;
+	let spanNumeroPersonal = document.createElement('h4');
+	spanNumeroPersonal.innerHTML = "Número personal: "+ docente.numeroPersonal;
+	let spanFolioProdep = document.createElement('h4');
+	spanFolioProdep.innerHTML = "Folio PRODEP: "+ proyecto.FolioProdep;
+	let spanClaveProgramatica = document.createElement('h4');
+	spanClaveProgramatica.innerHTML = "Clave programática: "+proyecto.ClaveProgramatica;
+	let spanInicioApoyo = document.createElement('h4');
+	spanInicioApoyo.innerHTML = "Inicio de apoyo: "+proyecto.InicioApoyo;
+	let spanOficioAutorización = document.createElement('h4');
+	spanOficioAutorización.innerHTML = "Oficio de autorización: "+proyecto.OficioAutorizacion;
+	bodyModal.appendChild(spanNombreDocente);
+	bodyModal.appendChild(spanNumeroPersonal);
+	bodyModal.appendChild(spanFolioProdep);
+	bodyModal.appendChild(spanClaveProgramatica);
+	bodyModal.appendChild(spanInicioApoyo);
+	bodyModal.appendChild(spanOficioAutorización);
+	$('#modalConsultaProyecto').modal('show');
 }
 
 function obtenerProyecto(proyecto){
 	let id =  proyecto['idProyecto'];
-	$.ajax({
+	return $.ajax({
 		method: "POST",
 		async: true,
 		cache: false,
@@ -95,8 +113,6 @@ function obtenerProyecto(proyecto){
 		timeout: 30000,
 		url: base_url+"/ProyectoController/obtenerProyecto",
 		data: { 'idProyecto': id}
-	}).done(function(proyectoJSON) {
-		console.log(proyectoJSON);
 	}).fail(function(){
 		console.log("no se pudo");
 	});
@@ -109,13 +125,12 @@ function iconosEdicion(tituloImagen,proyecto){
 	imagen.src ="/servicios-prodep/recursos/"+tituloImagen+".svg";
 	divImagen.appendChild(imagen);
 	divImagen.addEventListener('click',function(){
-
-
-		if(tituloImagen == 'ver')
-			consultarDatosProyecto(proyectosJSON);
-		else{
-			editarProyecto(proyectosJSON);	
-		}
+		obtenerProyecto(proyecto).done(function(result){
+			console.log(result);
+			if(tituloImagen == 'ver'){
+				consultarDatosProyecto(result['proyecto'],proyecto.docente);
+			}
+		});
 	});
 	return divImagen;
 }

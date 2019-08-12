@@ -28,4 +28,19 @@ class DirectorController extends CI_Controller{
     	echo json_encode($directorJSON);
     }
     
+    public function obtenerDirectorId(){
+        $idDirector = $this->input->post('idDirector');
+        $director = new Director();
+        $director->setIDirector(new DirectorModelo());
+        $director = $director->obtenerPersonalId($idDirector);
+        $directorJSON = array();
+        $directorJSON['idDirector'] = $director->getIdPersonal();
+        if($director->getIdPersonal() > 0){
+            $directorJSON['nombreDirector'] = $director->getNombre();
+        }else{
+            $directorJSON['mensaje'] = 'El director no se encuentra registrado';
+        }
+        echo json_encode($directorJSON);
+    }
+    
 }

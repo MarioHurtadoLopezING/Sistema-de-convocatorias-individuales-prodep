@@ -38,7 +38,25 @@ class ProyectoModelo extends CI_Model implements IProyecto{
 	}
 
     public function editar($proyecto){
-
+        $data = array(
+            'pro_claveProgramtica'=>$proyecto->getClaveProgramatica(),
+            'pro_folioProdep'=>$proyecto->getFolioProdep(),
+            'pro_oficioAutorizacion'=>$proyecto->getOficioAutorizacion(),
+            'pro_inicioApoyo'=>$proyecto->getInicioApoyo(),
+            'pro_finApoyo'=>$proyecto->getFinApoyo(),
+            'pro_estado'=>false,
+            'pro_numeroDependencia'=>$proyecto->getNumeroDependencia(),
+            'doc_id'=>$proyecto->getDocente(),
+            'adm_id'=>$proyecto->getAdministrador(),
+            'dir_id'=>$proyecto->getDirector(),
+            'ent_id'=>$proyecto->getEntidadEducativa(),
+            'per_id'=>$proyecto->getPersonal(),
+            'are_id'=>$proyecto->getAreaEducativa(),
+            'reg_id'=>$proyecto->getRegion(),
+            'con_id'=>$proyecto->getConvocatoria()
+        );
+        $this->db->where('pro_id',$proyecto->getIdProyecto());
+        return $this->db->update('proyecto',$data);
     }
 
     public function cambiarEstado($estado){
@@ -71,6 +89,7 @@ class ProyectoModelo extends CI_Model implements IProyecto{
             $proyecto['FolioProdep'] =$row->pro_folioProdep;
             $proyecto['OficioAutorizacion'] = $row->pro_oficioAutorizacion;
             $proyecto['InicioApoyo'] = $row->pro_inicioApoyo;
+            $proyecto['FinApoyo'] = $row->pro_finApoyo;
             $proyecto['Estado'] = $row->pro_estado;
             $proyecto['NumeroDependencia'] = $row->pro_numeroDependencia;
             $proyecto['Docente'] = $row->doc_id;

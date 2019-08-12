@@ -28,4 +28,19 @@ class DocenteController Extends CI_controller{
 		echo json_encode($docenteJSON);
     }
 
+    public function obtenerDocenteId(){
+    	$idDocente = $this->input->post('idDocente');
+    	$docente = new Docente();
+		$docente->setIDocente(new DocenteModelo());
+		$docente = $docente->obtenerPersonalId($idDocente);
+		$docenteJSON = array();
+		$docenteJSON['idDocente'] = $docente->getIdPersonal();
+		if($docente->getIdPersonal() > 0){
+			$docenteJSON['nombreDocente'] = $docente->getNombre();
+		}else{
+			$docenteJSON['mensaje'] = 'El docente no se encuentra registrado';
+		}
+		echo json_encode($docenteJSON);
+    }
+
 }

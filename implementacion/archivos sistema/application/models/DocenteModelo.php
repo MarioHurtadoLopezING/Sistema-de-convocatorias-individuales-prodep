@@ -40,4 +40,19 @@ class DocenteModelo extends CI_Model implements IDocente{
     public function obtenerPersonalNumeroregistro($numeroPersonal){
 
     }
+    public function obtenerPersonalId($idPersonal){
+        $docente = new Docente();
+        $consulta = $this->db->get_where('docente',array('doc_id'=>$idPersonal));
+        if($consulta->num_rows() > 0){
+            $fila = $consulta->row();
+            $docente->setIdPersonal($fila->doc_id);
+            $docente->setNombre($fila->doc_nombre);
+            $docente->setCorreo($fila->doc_correo);
+            $docente->setNumeroPersonal($fila->doc_numeroPersonal);
+            $docente->setIDocente($this);
+        }else{
+            $docente->setIdPersonal(0);
+        }
+        return  $docente;
+    }
 }

@@ -30,4 +30,7 @@ class Administrador extends PersonalAdministrativo{
     public function obtenerPersonalCorreo($correo){
     	return $this->iAdministrador->obtenerPersonalCorreo($correo);
     }
+    public function obtenerPersonalId($idAdministrador){
+        return $this->iAdministrador->obtenerPersonalId($idAdministrador);
+    }
 }

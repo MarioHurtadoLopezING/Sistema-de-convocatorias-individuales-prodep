@@ -32,4 +32,18 @@ class DirectorModelo extends CI_Model implements IDirector{
     	}
     	return $director;
     }
+    public function obtenerPersonalId($idDirector){
+        $director = new Director();
+        $consulta = $this->db->get_where('director', array('dir_id'=>$idDirector));
+        if($consulta->num_rows() > 0){
+            $fila = $consulta->row();
+            $director->setIdPersonal($fila->dir_id);
+            $director->setNombre($fila->dir_nombre);
+            $director->setCorreo($fila->dir_correo);
+            $director->setIDirector($this);
+        }else{
+            $director->setIdPersonal(0);
+        }
+        return $director;
+    }
 }

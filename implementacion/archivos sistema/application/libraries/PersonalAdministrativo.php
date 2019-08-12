@@ -36,4 +36,5 @@ abstract class PersonalAdministrativo{
     public abstract function registrarPersonal();
     public abstract function editarPersonal();
     public abstract function obtenerPersonalCorreo($correo);
+    public abstract function obtenerPersonalId($idPersonal);
 }

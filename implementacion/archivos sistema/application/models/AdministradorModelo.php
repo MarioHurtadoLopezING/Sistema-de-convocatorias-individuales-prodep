@@ -33,4 +33,18 @@ class AdministradorModelo extends CI_model implements IAdministrador{
     	}
     	return $administrador;
 	}
+    public function obtenerPersonalId($idAdministrador){
+        $administrador = new Administrador();
+        $consulta = $this->db->get_where('administrador', array('adm_id'=>$idAdministrador));
+        if($consulta->num_rows() > 0){
+            $fila = $consulta->row();
+            $administrador->setIdPersonal($fila->adm_id);
+            $administrador->setNombre($fila->adm_nombre);
+            $administrador->setCorreo($fila->adm_correo);
+            $administrador->setIAdministrador($this);
+        }else{
+            $administrador->setIdPersonal(0);
+        }
+        return $administrador;
+    }
 }

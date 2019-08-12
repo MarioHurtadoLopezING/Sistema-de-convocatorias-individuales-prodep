@@ -6,6 +6,7 @@ class Proyecto{
 	private $folioProdep;#
 	private $oficioAutorizacion;#
 	private $inicioApoyo;#
+	private $finApoyo;
 	private $estado;#
 	private $numeroDependencia;
 	private $docente;
@@ -60,6 +61,14 @@ class Proyecto{
 
 	public function setInicioApoyo($inicioApoyo){
 		$this->inicioApoyo = $inicioApoyo;
+	}
+
+	public function setFinApoyo($finApoyo){
+		$this->finApoyo = $finApoyo;
+	}
+
+	public function getFinApoyo(){
+		return $this->finApoyo;
 	}
 
 	public function getEstado(){

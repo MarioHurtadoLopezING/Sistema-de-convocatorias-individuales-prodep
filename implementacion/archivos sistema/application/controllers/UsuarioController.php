@@ -33,25 +33,20 @@ class UsuarioController extends CI_Controller{
     }
 
     public function registrarPersonal(){
-        $nombre = $this->input->post('nombre');
-        $correo = $this->input->post('correo');
-        $nombreUsuario = $this->input->post('usuario');
-        $contrasena = $this->input->post('contrasena');
         $personal = new Personal();
-        $personal->setNombre($nombre);
-        $personal->setCorreo($correo);
+        $personal->setNombre($this->input->post('nombre'));
+        $personal->setCorreo($this->input->post('correo'));
         $personal->setRol('coordinador');
         $personal->setIPersonal(new PersonalModelo());
         if($personal->registrar()){
             $personal = $personal->obtenerPersonalCorreo();
             if($personal->getIdPersonal() != 0){
-                if ($this->registrarUsuario($personal, $nombreUsuario, $contrasena)){
+                if ($this->registrarUsuario($personal,$this->input->post('usuario'), $this->input->post('contrasena'))){
                     echo "usuario registrado";
                 }   
             }else{
                 echo "el usuario no ha podido registrarse";
             }
-
         }else{
             echo "el personal no ha podido registrarse";
         }
@@ -67,11 +62,9 @@ class UsuarioController extends CI_Controller{
     }
 
     public function iniciarSesion(){
-        $nombreUsuario = $this->input->post('usuario');
-        $contrasena = $this->input->post('contrasena');
         $usuario = new Usuario();
         $usuario->setIUsuario(new UsuarioModelo());
-        $usuario = $usuario->iniciarSesion($nombreUsuario, $contrasena);
+        $usuario = $usuario->iniciarSesion($this->input->post('usuario'), $this->input->post('contrasena'));
         if($usuario->getIdUsuario() != 0){
             $this->session->set_userdata('idUsuario',$usuario->getIdUsuario());
             $this->session->set_userdata('idPersonal',$usuario->getPersonal());

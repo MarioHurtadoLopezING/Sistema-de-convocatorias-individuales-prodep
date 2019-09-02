@@ -23,7 +23,7 @@
 	</header>
 	<div id="menu">
 		<img src="<?=base_url('recursos/prodep.png')?>">
-		<div class="menuElemento separadorMenuImagen" id="divProyecto" data-toggle="modal" data-target="#login">
+		<div class="menuElemento separadorMenuImagen" id="divProyecto" data-toggle="modal" data-target="#modalProyectos">
 			<div class="textoElementoMenu"><span class="esconder">Proyectos</span></div>
 			<div class="imagenElementoMenu"><img src="<?=base_url('recursos/proyecto.svg')?>"></div>
 		</div>
@@ -31,7 +31,7 @@
 			<div class="textoElementoMenu"><span class="esconder">Convocatorias</span></div>
 			<div class="imagenElementoMenu"><img src="<?=base_url('recursos/cuaderno.svg')?>"></div>
 		</div>
-		<div class="menuElemento">
+		<div class="menuElemento" id="divOficio" data-toggle="modal" data-target="#modalOficios">
 			<div class="textoElementoMenu"><span class="esconder">Oficios</span></div>
 			<div class="imagenElementoMenu"><img src="<?=base_url('recursos/contrato.svg')?>"></div>
 		</div>
@@ -47,7 +47,7 @@
 		</a>
 	</div>
 	<!--Modal de proyectos -->
-	<div id="login" class="modal fade" role="dialog">
+	<div id="modalProyectos" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -69,6 +69,39 @@
 								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
 							</div>
 							<span class="center">consultar registros</span>
+						</div>  
+					</a>	 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Modal de proyectos -->
+	<!--Modal de oficios -->
+	<div id="modalOficios" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title center">Oficios</h4>
+				</div>
+				<div class="modal-body center">
+					 <a href="<?=base_url();?>index.php/OficioController/vista/nuevoOficio">
+						<div class="item">
+							<div class="center">
+								<img src="<?=base_url('recursos/agregar-documento.svg')?>" class="iconoItem">
+							</div>						
+							<span class="center">Agregar nuevo oficio</span>
+						</div>
+					</a>
+					 <a href="<?=base_url();?>index.php/OficioController/vista/consultarOficios">
+						<div class="item">
+							<div class="center">
+								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
+							</div>
+							<span class="center">consultar oficios</span>
 						</div>  
 					</a>	 
 				</div>

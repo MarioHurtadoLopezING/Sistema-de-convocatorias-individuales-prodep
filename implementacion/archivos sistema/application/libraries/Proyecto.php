@@ -177,4 +177,7 @@ class Proyecto{
     public function obtenerProyecto($idProyecto){
     	return $this->iProyecto->obtenerProyecto($idProyecto);
     }
+    public function obtenerProyectoFolioProdep($folioProdep){
+    	return $this->iProyecto->obtenerProyectoFolioProdep($folioProdep);
+    }
 }

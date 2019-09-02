@@ -14,10 +14,9 @@ class DocenteController Extends CI_controller{
     }
 
     public function obtenerDocente(){
-    	$correoDocente = $this->input->post('correo');
 		$docente = new Docente();
 		$docente->setIDocente(new DocenteModelo());
-		$docente = $docente->obtenerPersonalCorreo($correoDocente);
+		$docente = $docente->obtenerPersonalCorreo($this->input->post('correo'));
 		$docenteJSON = array();
 		$docenteJSON['idDocente'] = $docente->getIdPersonal();
 		if($docente->getIdPersonal() > 0){
@@ -29,10 +28,9 @@ class DocenteController Extends CI_controller{
     }
 
     public function obtenerDocenteId(){
-    	$idDocente = $this->input->post('idDocente');
     	$docente = new Docente();
 		$docente->setIDocente(new DocenteModelo());
-		$docente = $docente->obtenerPersonalId($idDocente);
+		$docente = $docente->obtenerPersonalId($this->input->post('idDocente'));
 		$docenteJSON = array();
 		$docenteJSON['idDocente'] = $docente->getIdPersonal();
 		if($docente->getIdPersonal() > 0){

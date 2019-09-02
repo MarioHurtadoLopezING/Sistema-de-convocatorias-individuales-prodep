@@ -14,10 +14,9 @@ class DirectorController extends CI_Controller{
     }
 
     public function obtenerDirector(){
-    	$correo = $this->input->post('correo');
     	$director = new Director();
     	$director->setIDirector(new DirectorModelo());
-    	$director = $director->obtenerPersonalCorreo($correo);
+    	$director = $director->obtenerPersonalCorreo($this->input->post('correo'));
     	$directorJSON = array();
     	$directorJSON['idDirector'] = $director->getIdPersonal();
     	if($director->getIdPersonal() > 0){
@@ -29,10 +28,9 @@ class DirectorController extends CI_Controller{
     }
     
     public function obtenerDirectorId(){
-        $idDirector = $this->input->post('idDirector');
         $director = new Director();
         $director->setIDirector(new DirectorModelo());
-        $director = $director->obtenerPersonalId($idDirector);
+        $director = $director->obtenerPersonalId($this->input->post('idDirector'));
         $directorJSON = array();
         $directorJSON['idDirector'] = $director->getIdPersonal();
         if($director->getIdPersonal() > 0){

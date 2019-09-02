@@ -30,3 +30,17 @@ function Proyecto(idProyecto,docente, claveProdep){
 	this.claveProdep = claveProdep;
 }
 
+function Destinatario(idDestinatario, nombre){
+	this.idDestinatario = idDestinatario;
+	this.nombre = nombre;
+}
+
+function Oficio(idOficio,añoConvocatoria, asunto, docente, fechaEnvio, folioProdep, monto){
+	this.idOficio = idOficio;
+	this.añoConvocatoria = añoConvocatoria;	
+	this.asunto = asunto;
+	this.docente = docente;
+	this.fechaEnvio = fechaEnvio;
+	this.folioProdep = folioProdep;
+	this.monto = monto;
+}

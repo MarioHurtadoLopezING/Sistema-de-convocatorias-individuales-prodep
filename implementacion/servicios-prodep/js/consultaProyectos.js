@@ -15,7 +15,8 @@ function obtenerProyectos(){
 		url: base_url+"/ProyectoController/obtenerProyectos",
 	}).done(function(proyectosJSON) {
 		cargarListaProyectos(proyectosJSON.proyectos);
-	}).fail(function(){
+	}).fail(function(event){
+		console.log(event);
 		console.log("no se pudo");
 	});
 }
@@ -47,6 +48,7 @@ function cargarProyectosVista(){
 	}	
 }
 
+/*esta función se reptite*/
 function divLogo(){
 	let divImagenProyectoRegistro = document.createElement('div');
 	divImagenProyectoRegistro.classList.add('imagenProyectoRegistro','izquierda');
@@ -87,13 +89,13 @@ function consultarDatosProyecto(proyecto, docente){
 	let spanNumeroPersonal = document.createElement('h4');
 	spanNumeroPersonal.innerHTML = "Número personal: "+ docente.numeroPersonal;
 	let spanFolioProdep = document.createElement('h4');
-	spanFolioProdep.innerHTML = "Folio PRODEP: "+ proyecto.FolioProdep;
+	spanFolioProdep.innerHTML = "Folio PRODEP: "+ proyecto.folioProdep;
 	let spanClaveProgramatica = document.createElement('h4');
-	spanClaveProgramatica.innerHTML = "Clave programática: "+proyecto.ClaveProgramatica;
+	spanClaveProgramatica.innerHTML = "Clave programática: "+proyecto.claveProgramatica;
 	let spanInicioApoyo = document.createElement('h4');
-	spanInicioApoyo.innerHTML = "Inicio de apoyo: "+proyecto.InicioApoyo;
+	spanInicioApoyo.innerHTML = "Inicio de apoyo: "+proyecto.inicioApoyo;
 	let spanOficioAutorización = document.createElement('h4');
-	spanOficioAutorización.innerHTML = "Oficio de autorización: "+proyecto.OficioAutorizacion;
+	spanOficioAutorización.innerHTML = "Oficio de autorización: "+proyecto.oficioAutorizacion;
 	bodyModal.appendChild(spanNombreDocente);
 	bodyModal.appendChild(spanNumeroPersonal);
 	bodyModal.appendChild(spanFolioProdep);

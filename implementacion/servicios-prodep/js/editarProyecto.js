@@ -26,29 +26,29 @@ function cargarProyecto(){
 	}).done(function(proyectoRegistroJSON) {
 		mostrarDatosProyecto(proyectoRegistroJSON.proyecto);
 		console.log(proyectoRegistroJSON.proyecto);
-		cargarComboRegiones(proyectoRegistroJSON.proyecto.Region);
-		cargarComboAreas(proyectoRegistroJSON.proyecto.AreaEducativa);
-		cargarComboEntidades(proyectoRegistroJSON.proyecto.EntidadEducativa);
-		cargarComboConvocatorias(proyectoRegistroJSON.proyecto.Convocatoria);
+		cargarComboRegiones(proyectoRegistroJSON.proyecto.region);
+		cargarComboAreas(proyectoRegistroJSON.proyecto.areaEducativa);
+		cargarComboEntidades(proyectoRegistroJSON.proyecto.entidadEducativa);
+		cargarComboConvocatorias(proyectoRegistroJSON.proyecto.convocatoria);
 
 	}).fail(function(){
 		alert('Existe un problema con el registro');
 	});
 }
 function mostrarDatosProyecto(proyectoDatos){
-	$("#folioProdep").val(proyectoDatos.FolioProdep);
-	$("#claveProgramatica").val(proyectoDatos.ClaveProgramatica);
-	$("#oficioAutorizacion").val(proyectoDatos.OficioAutorizacion);
-	$("#numeroDependencia").val(proyectoDatos.NumeroDependencia);
+	$("#folioProdep").val(proyectoDatos.folioProdep);
+	$("#claveProgramatica").val(proyectoDatos.claveProgramatica);
+	$("#oficioAutorizacion").val(proyectoDatos.oficioAutorizacion);
+	$("#numeroDependencia").val(proyectoDatos.numeroDependencia);
 	var dateControl = document.getElementById('fechaInicioApoyo');
-	dateControl.value = proyectoDatos.InicioApoyo;
+	dateControl.value = proyectoDatos.inicioApoyo;
 	if(proyectoDatos.FinApoyo != null){
 		var controlFinApoyo = document.getElementById('fechaFinApoyo');
-		controlFinApoyo.value = proyectoDatos.FinApoyo;
+		controlFinApoyo.value = proyectoDatos.finApoyo;
 	}
-	buscarDocente(proyectoDatos.Docente);
-	buscarDirector(proyectoDatos.Director);
-	buscarAdministrador(proyectoDatos.Administrador);
+	buscarDocente(proyectoDatos.docente);
+	buscarDirector(proyectoDatos.director);
+	buscarAdministrador(proyectoDatos.administrador);
 }
 
 function cargarComboRegiones(Region){

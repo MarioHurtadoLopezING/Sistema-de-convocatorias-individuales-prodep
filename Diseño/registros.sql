@@ -1,5 +1,8 @@
 use prodep;
 
+insert into destinatario values(0,"gabriel morales diaz");
+insert into destinatario values(0,"graciela hernandez sanchez");
+
 insert into region values(0,"Xalapa");
 insert into region values(0,"Veracruz");
 insert into region values(0,"Poza Rica - Tuxpan");

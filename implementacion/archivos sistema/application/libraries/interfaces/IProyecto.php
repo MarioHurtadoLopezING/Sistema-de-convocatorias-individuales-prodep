@@ -7,4 +7,5 @@ interface IProyecto{
     public function cambiarEstado($estado);
     public function obtenerProyectos();
     public function obtenerProyecto($idProyecto);
+    public function obtenerProyectoFolioProdep($folioProdep);
 }

@@ -8,7 +8,6 @@ class AdministradorModelo extends CI_model implements IAdministrador{
 	public function __get($attr) {
         return CI_Controller::get_instance()->$attr;
     }
-
     public function __construct(){
     	$this->load->database('prodep');
     }

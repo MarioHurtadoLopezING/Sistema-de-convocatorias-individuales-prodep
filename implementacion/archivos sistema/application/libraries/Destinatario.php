@@ -10,7 +10,7 @@ class Destinatario{
 	}
 
 	public function getIdDestinatario(){
-		retun $this->idDestinatario;
+		return $this->idDestinatario;
 	}
 
 	public function setIdDestinatario($idDestinatario){
@@ -32,6 +32,9 @@ class Destinatario{
 		return $this->iDestinatario;
 	}
 
+	public function obtenerDestinatarios(){
+		return $this->iDestinatario->obtenerDestinatarios();
+	}
 	public function registrar(){
 		return $this->iDestinatario->registrar($this);
 	}

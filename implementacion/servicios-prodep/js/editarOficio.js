@@ -24,7 +24,6 @@ function cargarOficio(){
 }
 
 function mostrarDatosOficio(oficio){
-	console.log(oficio);
 	$('#numeroOficio').val(oficio.numeroOficio);
 	$('#folioProdep').val(oficio.docente.nombre);
 	$('#idProyecto').val(oficio.idProyecto);
@@ -72,7 +71,6 @@ function editarOficio(){
 	$('#aprobado').is(':checked')?oficioJSON.aprobado = true:oficioJSON.aprobado = false;
 	oficioJSON = JSON.parse(JSON.stringify(oficioJSON));
 	oficioJSON = JSON.stringify(oficioJSON);
-	console.log(oficioJSON);
 	$.ajax({
 		method: "POST",
 		async: true,
@@ -89,8 +87,8 @@ function editarOficio(){
 		}else{
 			alert('el oficio no se pudo registrar');
 		}
-	}).fail(function(algo){
-		alert('Existe un problema con el registro'+ algo);
-		console.log(algo);
+	}).fail(function(event){
+		alert('Existe un problema con el registro');
+		console.log(event);
 	});
 }

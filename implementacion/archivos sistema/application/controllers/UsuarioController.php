@@ -42,7 +42,8 @@ class UsuarioController extends CI_Controller{
             $personal = $personal->obtenerPersonalCorreo();
             if($personal->getIdPersonal() != 0){
                 if ($this->registrarUsuario($personal,$this->input->post('usuario'), $this->input->post('contrasena'))){
-                    echo "usuario registrado";
+                    $this->mostrarPaginaPrincipal($this->input->post('usuario'), $this->input->post('contrasena'));
+                    redirect('UsuarioController');
                 }   
             }else{
                 echo "el usuario no ha podido registrarse";
@@ -62,16 +63,24 @@ class UsuarioController extends CI_Controller{
     }
 
     public function iniciarSesion(){
+        $this->mostrarPaginaPrincipal($this->input->post('usuario'), $this->input->post('contrasena'));
+    }
+
+    private function mostrarPaginaPrincipal($usuario,$contrasena){
         $usuario = new Usuario();
         $usuario->setIUsuario(new UsuarioModelo());
         $usuario = $usuario->iniciarSesion($this->input->post('usuario'), $this->input->post('contrasena'));
         if($usuario->getIdUsuario() != 0){
-            $this->session->set_userdata('idUsuario',$usuario->getIdUsuario());
-            $this->session->set_userdata('idPersonal',$usuario->getPersonal());
+            $this->guardarSesion($usuario->getIdUsuario(),$usuario->getPersonal());
             redirect('UsuarioController/vista');
         }else{
             $this->mostrarInicioSesion('El nombre de usuario y/o contraseña son incorrectos.');
         }
+    }
+
+    private function guardarSesion($idUsuario, $idPersonal){
+        $this->session->set_userdata('idUsuario',$idUsuario);
+        $this->session->set_userdata('idPersonal',$idPersonal);
     }
 
     private function mostrarInicioSesion($mensaje = ''){

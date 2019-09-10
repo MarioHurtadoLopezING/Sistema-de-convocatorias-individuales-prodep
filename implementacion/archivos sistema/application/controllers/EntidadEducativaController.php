@@ -14,11 +14,15 @@ class EntidadEducativaController extends CI_Controller{
     }
 
 	public function obtenerEntidadesEducativas(){
-		$entidadEducativa = new EntidadEducativa();
-		$entidadEducativa->setIEntidadEducativa(new EntidadEducativaModelo());
-		$entidadEducativa = $entidadEducativa->obtenerEntidadesEducativas();
-		$entidadEducativaJSON = array();
-		$entidadEducativaJSON['entidades'] = $entidadEducativa;
-		echo json_encode($entidadEducativaJSON);
+		if($this->session->userdata('idUsuario')){
+			$entidadEducativa = new EntidadEducativa();
+			$entidadEducativa->setIEntidadEducativa(new EntidadEducativaModelo());
+			$entidadEducativa = $entidadEducativa->obtenerEntidadesEducativas();
+			$entidadEducativaJSON = array();
+			$entidadEducativaJSON['entidades'] = $entidadEducativa;
+			echo json_encode($entidadEducativaJSON);
+		}else{
+			redirect('UsuarioController');
+		}
 	}
 }

@@ -80,26 +80,27 @@ class OficioController extends CI_Controller{
     }
 
     public function obtenerOficios(){
-        $oficio = new Oficio();
-        $oficio->setIOficio(new OficioModelo());
-        $oficio = $oficio->obtenerOficios();
-        for($i = 0; $i < sizeof($oficio); $i++){
-            $proyecto = new Proyecto();
-            $proyecto->setIProyecto(new ProyectoModelo());
-            $proyecto = $proyecto->obtenerProyecto($oficio[$i]['idProyecto']);
-            $docente = new Docente();
-            $docente->setIDocente(new DocenteModelo());
-            $docente = $docente->obtenerPersonalId($proyecto['docente']);
-            $oficio[$i]['docente']['idDocente'] =$docente->getIdPersonal();
-            $oficio[$i]['docente']['nombre'] =$docente->getNombre();
-            $oficio[$i]['docente']['numeroPersonal'] =$docente->getNumeroPersonal();
+        if($this->session->userdata('idUsuario')){
+            $oficio = new Oficio();
+            $oficio->setIOficio(new OficioModelo());
+            $oficio = $oficio->obtenerOficios();
+            for($i = 0; $i < sizeof($oficio); $i++){
+                $proyecto = new Proyecto();
+                $proyecto->setIProyecto(new ProyectoModelo());
+                $proyecto = $proyecto->obtenerProyecto($oficio[$i]['idProyecto']);
+                $docente = new Docente();
+                $docente->setIDocente(new DocenteModelo());
+                $docente = $docente->obtenerPersonalId($proyecto['docente']);
+                $oficio[$i]['docente']['idDocente'] =$docente->getIdPersonal();
+                $oficio[$i]['docente']['nombre'] =$docente->getNombre();
+                $oficio[$i]['docente']['numeroPersonal'] =$docente->getNumeroPersonal();
+            }
+            $oficioJSON = array();
+            $oficioJSON['oficios'] = $oficio;
+            echo json_encode($oficioJSON);
+        }else{
+            redirect('UsuarioController');
         }
-
-        $oficioJSON = array();
-        
-        $oficioJSON['oficios'] = $oficio;
-
-        echo json_encode($oficioJSON);
     }
 
     public function obtenerOficio(){
@@ -139,7 +140,7 @@ class OficioController extends CI_Controller{
             $oficio->setAprobado($post->aprobado);
             echo json_encode(array('estado'=>$oficio->editarOficio()));
         }else{
-            redirect('UsuarioControllerio');
+            redirect('UsuarioController');
         }
     }
 

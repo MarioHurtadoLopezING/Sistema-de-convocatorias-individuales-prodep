@@ -21,7 +21,6 @@ class DestinatarioModelo extends CI_Model implements IDestinatario{
     		$destinatario['idDestinatario'] = $row->des_id;
     		$destinatario['nombre'] = $row->des_nombre;
     		array_push($destinatarios, $destinatario);
-    		#$res = $res . $row->reg_nombre;
     	}
     	return $destinatarios;
     }

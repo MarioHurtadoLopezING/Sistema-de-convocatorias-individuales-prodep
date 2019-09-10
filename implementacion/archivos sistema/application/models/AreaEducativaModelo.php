@@ -28,7 +28,6 @@ class AreaEducativaModelo extends CI_Model implements IAreaEducativa{
     		$area['idArea'] = $row->are_id;
     		$area['nombre'] = $row->are_nombre;
     		array_push($areas, $area);
-    		#$res = $res . $row->reg_nombre;
     	}
     	return $areas;
     }

@@ -14,31 +14,39 @@ class DocenteController Extends CI_controller{
     }
 
     public function obtenerDocente(){
-		$docente = new Docente();
-		$docente->setIDocente(new DocenteModelo());
-		$docente = $docente->obtenerPersonalCorreo($this->input->post('correo'));
-		$docenteJSON = array();
-		$docenteJSON['idDocente'] = $docente->getIdPersonal();
-		if($docente->getIdPersonal() > 0){
-			$docenteJSON['nombreDocente'] = $docente->getNombre();
+		if($this->session->userdata('idUsuario')){
+			$docente = new Docente();
+			$docente->setIDocente(new DocenteModelo());
+			$docente = $docente->obtenerPersonalCorreo($this->input->post('correo'));
+			$docenteJSON = array();
+			$docenteJSON['idDocente'] = $docente->getIdPersonal();
+			if($docente->getIdPersonal() > 0){
+				$docenteJSON['nombreDocente'] = $docente->getNombre();
+			}else{
+				$docenteJSON['mensaje'] = 'El docente no se encuentra registrado';
+			}
+			echo json_encode($docenteJSON);
 		}else{
-			$docenteJSON['mensaje'] = 'El docente no se encuentra registrado';
+			redirect('UsuarioController');
 		}
-		echo json_encode($docenteJSON);
     }
 
     public function obtenerDocenteId(){
-    	$docente = new Docente();
-		$docente->setIDocente(new DocenteModelo());
-		$docente = $docente->obtenerPersonalId($this->input->post('idDocente'));
-		$docenteJSON = array();
-		$docenteJSON['idDocente'] = $docente->getIdPersonal();
-		if($docente->getIdPersonal() > 0){
-			$docenteJSON['nombreDocente'] = $docente->getNombre();
-		}else{
-			$docenteJSON['mensaje'] = 'El docente no se encuentra registrado';
-		}
-		echo json_encode($docenteJSON);
+    	if($this->session->userdata('idUsuario')){
+    		$docente = new Docente();
+			$docente->setIDocente(new DocenteModelo());
+			$docente = $docente->obtenerPersonalId($this->input->post('idDocente'));
+			$docenteJSON = array();
+			$docenteJSON['idDocente'] = $docente->getIdPersonal();
+			if($docente->getIdPersonal() > 0){
+				$docenteJSON['nombreDocente'] = $docente->getNombre();
+			}else{
+				$docenteJSON['mensaje'] = 'El docente no se encuentra registrado';
+			}
+			echo json_encode($docenteJSON);
+    	}else{
+    		redirect('UsuarioController');
+    	}
     }
 
 }

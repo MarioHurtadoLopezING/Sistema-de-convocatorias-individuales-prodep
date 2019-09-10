@@ -14,13 +14,15 @@ class ConvocatoriaController extends CI_Controller{
     }
 
     public function obtenerConvocatorias(){
-    	$convocatoria = new Convocatoria();
-    	$convocatoria->setIConvocatoria(new ConvocatoriaModelo());
-    	$convocatoria = $convocatoria->obtenerConvocatorias();
-    	$convocatoriasJSON = array();
-    	$convocatoriasJSON['convocatorias'] = $convocatoria;
-    	echo json_encode($convocatoriasJSON);
-
+    	if($this->session->userdata('idUsuario')){
+            $convocatoria = new Convocatoria();
+            $convocatoria->setIConvocatoria(new ConvocatoriaModelo());
+            $convocatoria = $convocatoria->obtenerConvocatorias();
+            $convocatoriasJSON = array();
+            $convocatoriasJSON['convocatorias'] = $convocatoria;
+            echo json_encode($convocatoriasJSON);
+        }else{
+            redirect('UsuarioController');
+        }
     }
-
 }

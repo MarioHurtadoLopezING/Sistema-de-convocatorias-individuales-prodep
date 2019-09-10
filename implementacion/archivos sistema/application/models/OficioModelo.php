@@ -85,14 +85,3 @@ class OficioModelo extends CI_model implements IOficio{
         return $oficio;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -14,11 +14,15 @@ class DestinatarioController extends CI_Controller{
     }
 
     public function obtenerDestinatarios(){
-    	$destinatario = new Destinatario();
-    	$destinatario->setIDestinatario(new DestinatarioModelo());
-    	$destinatario = $destinatario->obtenerDestinatarios();
-    	$destinatarioJSON = array();
-    	$destinatarioJSON['destinatarios'] = $destinatario;
-    	echo json_encode($destinatarioJSON);
+    	if($this->session->userdata('idUsuario')){
+            $destinatario = new Destinatario();
+            $destinatario->setIDestinatario(new DestinatarioModelo());
+            $destinatario = $destinatario->obtenerDestinatarios();
+            $destinatarioJSON = array();
+            $destinatarioJSON['destinatarios'] = $destinatario;
+            echo json_encode($destinatarioJSON);
+        }else{
+            redirect('UsuarioController');
+        }
     }
 }

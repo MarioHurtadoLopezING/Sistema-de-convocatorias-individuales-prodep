@@ -14,31 +14,39 @@ class DirectorController extends CI_Controller{
     }
 
     public function obtenerDirector(){
-    	$director = new Director();
-    	$director->setIDirector(new DirectorModelo());
-    	$director = $director->obtenerPersonalCorreo($this->input->post('correo'));
-    	$directorJSON = array();
-    	$directorJSON['idDirector'] = $director->getIdPersonal();
-    	if($director->getIdPersonal() > 0){
-    		$directorJSON['nombreDirector'] = $director->getNombre();
-    	}else{
-    		$directorJSON['mensaje'] = 'El director no se encuentra registrado';
-    	}
-    	echo json_encode($directorJSON);
+    	if($this->session->userdata('idUsuario')){
+            $director = new Director();
+            $director->setIDirector(new DirectorModelo());
+            $director = $director->obtenerPersonalCorreo($this->input->post('correo'));
+            $directorJSON = array();
+            $directorJSON['idDirector'] = $director->getIdPersonal();
+            if($director->getIdPersonal() > 0){
+                $directorJSON['nombreDirector'] = $director->getNombre();
+            }else{
+                $directorJSON['mensaje'] = 'El director no se encuentra registrado';
+            }
+            echo json_encode($directorJSON);
+        }else{
+            redirect('UsuarioController');
+        }
     }
     
     public function obtenerDirectorId(){
-        $director = new Director();
-        $director->setIDirector(new DirectorModelo());
-        $director = $director->obtenerPersonalId($this->input->post('idDirector'));
-        $directorJSON = array();
-        $directorJSON['idDirector'] = $director->getIdPersonal();
-        if($director->getIdPersonal() > 0){
-            $directorJSON['nombreDirector'] = $director->getNombre();
+        if($this->session->userdata('idUsuario')){
+            $director = new Director();
+            $director->setIDirector(new DirectorModelo());
+            $director = $director->obtenerPersonalId($this->input->post('idDirector'));
+            $directorJSON = array();
+            $directorJSON['idDirector'] = $director->getIdPersonal();
+            if($director->getIdPersonal() > 0){
+                $directorJSON['nombreDirector'] = $director->getNombre();
+            }else{
+                $directorJSON['mensaje'] = 'El director no se encuentra registrado';
+            }
+            echo json_encode($directorJSON);
         }else{
-            $directorJSON['mensaje'] = 'El director no se encuentra registrado';
+            redirect('UsuarioController');
         }
-        echo json_encode($directorJSON);
     }
     
 }

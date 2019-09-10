@@ -4,10 +4,19 @@ class Becario{
 	private $idBecario;
 	private $nombre;
 	private $fechaInscripcion;
-	private $idBecario;
+	private $correo;
+	private $iBecario;
+	private $fechaIncioBecario;
 
 	public function __contruct(){
 
+	}
+
+	public function setCorreo($correo){
+		$this->correo = $correo;
+	}
+	public function getCorreo(){
+		return $this->correo;
 	}
 
 	public function setIdBecario($idBecario){
@@ -35,6 +44,13 @@ class Becario{
 	public function setIBecario($iBecario){
 		$this->iBecario = $iBecario;
 	}
+	public function getFechaInicioBecario(){
+		return $this->fechaIncioBecario;
+	}
+
+	public function setFechaInicioBecario($fechaIncioBecario){
+		$this->fechaIncioBecario = $fechaIncioBecario;
+	}
 
 	public function getIBecario(){
 		return $this->iBecario;
@@ -47,11 +63,7 @@ class Becario{
 	public function editar(){
 		return $this->iBecario->editar($this);
 	}
-
-	public function obtenerBecarioId($idBecario){
-		return $this->iBecario->obtenerBecarioId($idBecario);
-	}
-	public function obtenerBecarios(){
-		return $this->iBecario->obtenerBecarios();
+	public function obtenerBecarioCorreo($correo){
+		return $this->iBecario->obtenerBecarioCorreo($correo);
 	}
 }

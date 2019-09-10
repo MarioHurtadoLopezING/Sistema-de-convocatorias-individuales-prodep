@@ -9,7 +9,6 @@ class Oficio{
 	private $fechaRespuesta;
 	private $aprobado;
 	private $destinatario;
-	private $docente;
 	private $convocatoria;
 	private $proyecto;
 	private $IOficio;
@@ -89,14 +88,6 @@ class Oficio{
 
 	public function setDestinatario($destinatario){
 		$this->destinatario = $destinatario;
-	}
-
-	public function getDocente(){
-		return $this->docente;
-	}
-
-	public function setDocente($docente){
-		$this->docente = $docente;
 	}
 
 	public function getConvocatoria(){

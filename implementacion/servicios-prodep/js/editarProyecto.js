@@ -25,7 +25,6 @@ function cargarProyecto(){
 		data: {'idProyecto':idProyecto}
 	}).done(function(proyectoRegistroJSON) {
 		mostrarDatosProyecto(proyectoRegistroJSON.proyecto);
-		console.log(proyectoRegistroJSON.proyecto);
 		cargarComboRegiones(proyectoRegistroJSON.proyecto.region);
 		cargarComboAreas(proyectoRegistroJSON.proyecto.areaEducativa);
 		cargarComboEntidades(proyectoRegistroJSON.proyecto.entidadEducativa);
@@ -234,9 +233,7 @@ function editarProyecto(){
 	proyectoJSON.idConvocatoria = obtenerIdConvocatoria($('#comboConvocatorias').val());
 	proyectoJSON.fechaFinApoyo = obtenerFechaFinApoyo();
 	proyectoJSON = JSON.parse(JSON.stringify(proyectoJSON));
-	console.log(proyectoJSON);
 	proyectoJSON = JSON.stringify(proyectoJSON);
-	
 	$.ajax({
 		method: "POST",
 		async: true,
@@ -249,15 +246,12 @@ function editarProyecto(){
 		if(proyectoRegistroJSON.estado){
 			alert('Proyecto registrado');
 			$(':text').val('');
-			console.log(proyectoRegistroJSON);
-			console.log(JSON.stringify(proyectoRegistroJSON));
 		}else{
 			alert('el proyecto no se pudo registrar');
-			console.log(proyectoRegistroJSON);
 		}
-	}).fail(function(){
+	}).fail(function(event){
 		alert('Existe un problema con el registro');
-		console.log(proyectoRegistroJSON);
+		console.log(event);
 	});
 }
 

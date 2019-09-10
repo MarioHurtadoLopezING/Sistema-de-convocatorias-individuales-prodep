@@ -48,7 +48,6 @@ function cargarProyectosVista(){
 	}	
 }
 
-/*esta función se reptite*/
 function divLogo(){
 	let divImagenProyectoRegistro = document.createElement('div');
 	divImagenProyectoRegistro.classList.add('imagenProyectoRegistro','izquierda');
@@ -115,8 +114,8 @@ function obtenerProyecto(proyecto){
 		timeout: 30000,
 		url: base_url+"/ProyectoController/obtenerProyecto",
 		data: { 'idProyecto': id}
-	}).fail(function(){
-		console.log("no se pudo");
+	}).fail(function(event){
+		console.log(event);
 	});
 }
 

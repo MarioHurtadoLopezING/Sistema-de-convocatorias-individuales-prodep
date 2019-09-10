@@ -44,3 +44,11 @@ function Oficio(idOficio,añoConvocatoria, asunto, docente, fechaEnvio, folioPro
 	this.folioProdep = folioProdep;
 	this.monto = monto;
 }
+
+function Convocatoria(idConvocatoria, proyecto, anoConvocatoria, estado, fechaVoBo){
+	this.idConvocatoria = idConvocatoria;
+	this.proyecto = proyecto;
+	this.anoConvocatoria = anoConvocatoria;
+	this.estado = estado;
+	this.fechaVoBo = fechaVoBo;
+}

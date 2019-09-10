@@ -14,33 +14,40 @@ class AdministradorController extends CI_Controller{
     }
 
     public function obtenerAdministrador(){
-    	$correo = $this->input->post('correo');
-    	$administrador = new Administrador();
-    	$administrador->setIAdministrador(new AdministradorModelo());
-    	$administrador = $administrador->obtenerPersonalCorreo($correo);
-    	$administradorJSON = array();
-    	$administradorJSON['idAdministrador'] = $administrador->getIdPersonal();
-    	if($administrador->getIdPersonal() > 0){
-    		$administradorJSON['nombreAdministrador'] = $administrador->getNombre();
-    	}else{
-    		$administradorJSON['mensaje'] = 'El administrador no se encuentra registrado';
-    	}
-    	echo json_encode($administradorJSON);
+        if($this->session->userdata('idUsuario')){
+            $correo = $this->input->post('correo');
+            $administrador = new Administrador();
+            $administrador->setIAdministrador(new AdministradorModelo());
+            $administrador = $administrador->obtenerPersonalCorreo($correo);
+            $administradorJSON = array();
+            $administradorJSON['idAdministrador'] = $administrador->getIdPersonal();
+            if($administrador->getIdPersonal() > 0){
+                $administradorJSON['nombreAdministrador'] = $administrador->getNombre();
+            }else{
+                $administradorJSON['mensaje'] = 'El administrador no se encuentra registrado';
+            }
+            echo json_encode($administradorJSON);
+        }else{
+            redirect('UsuarioController');
+        }
     }
 
     public function obtenerAdministradorId(){
-        $idAdministrador = $this->input->post('idAdministrador');
-        $administrador = new Administrador();
-        $administrador->setIAdministrador(new AdministradorModelo());
-        $administrador = $administrador->obtenerPersonalId($idAdministrador);
-        $administradorJSON = array();
-        $administradorJSON['idAdministrador'] = $administrador->getIdPersonal();
-        if($administrador->getIdPersonal() > 0){
-            $administradorJSON['nombreAdministrador'] = $administrador->getNombre();
+        if($this->session->userdata('idUsuario')){
+            $idAdministrador = $this->input->post('idAdministrador');
+            $administrador = new Administrador();
+            $administrador->setIAdministrador(new AdministradorModelo());
+            $administrador = $administrador->obtenerPersonalId($idAdministrador);
+            $administradorJSON = array();
+            $administradorJSON['idAdministrador'] = $administrador->getIdPersonal();
+            if($administrador->getIdPersonal() > 0){
+                $administradorJSON['nombreAdministrador'] = $administrador->getNombre();
+            }else{
+                $administradorJSON['mensaje'] = 'El administrador no se encuentra registrado';
+            }
+            echo json_encode($administradorJSON);
         }else{
-            $administradorJSON['mensaje'] = 'El administrador no se encuentra registrado';
+            redirect('UsuarioController');
         }
-        echo json_encode($administradorJSON);
     }
-
 }

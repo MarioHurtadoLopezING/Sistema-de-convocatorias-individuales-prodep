@@ -83,7 +83,6 @@ function buscarDocente(){
 	});
 }
 function buscarNombreDocente(idDocente){
-	console.log(idDocente);
 	$.ajax({
 		method: "POST",
 		async: true,
@@ -110,7 +109,6 @@ function registrarOficio(){
 	oficioJSON.fechaEnvio = obtenerFecha(new Date($('#fechaEnvio').val()));
 	oficioJSON = JSON.parse(JSON.stringify(oficioJSON));
 	oficioJSON = JSON.stringify(oficioJSON);
-	console.log(oficioJSON);
 	$.ajax({
 		method: "POST",
 		async: true,
@@ -118,7 +116,7 @@ function registrarOficio(){
 		dataType: 'json',
 		timeout: 30000,
 		url: base_url + "/OficioController/registrarOficio",
-		data: oficioJSON
+		data: JSON.stringify(oficioJSON)
 	}).done(function(oficioRegistroJSON) {
 		if(oficioRegistroJSON.estado){
 			alert('Oficio registrado');
@@ -127,9 +125,9 @@ function registrarOficio(){
 		}else{
 			alert('el oficio no se pudo registrar');
 		}
-	}).fail(function(algo){
-		alert('Existe un problema con el registro'+ algo);
-		console.log(algo);
+	}).fail(function(event){
+		alert('Existe un problema con el registro');
+		console.log(event);
 	});
 }
 

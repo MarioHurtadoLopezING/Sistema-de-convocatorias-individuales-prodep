@@ -17,7 +17,7 @@
 				</select>
 			</div>
 			<div class="margin">
-				<span class="etiqueta esconder">Proyecto:</span><!--- con esto deberíamos obtener el numero de proyecto--> 
+				<span class="etiqueta esconder">Proyecto:</span>
 				<input type="text" name="folioProdep" placeholder="Número de fólio PRODEP" class="textbox tamanoBtn" id="folioProdep" required>
 				<input type="hidden" name="idProyecto" value="" id="idProyecto">
 				<button type="button" name="buscar" value="" class="btn btn-warning" id="buscarDocente">Buscar</button>
@@ -57,7 +57,7 @@
 			</div>
 			<div class="margin">
 				<input type="submit" name="" value="Registrar" class="btn boton margin btn-success">
-				<button type="button" name="" value="" class="btn boton margin btn-danger">Cancelar</button>
+				<a href="<?=base_url();?>index.php/OficioController/vista/consultarOficios"><button type="button" name="" value="" class="btn boton margin btn-danger">Cancelar</button></a>
 			</div>
 		</form>
 	</div>

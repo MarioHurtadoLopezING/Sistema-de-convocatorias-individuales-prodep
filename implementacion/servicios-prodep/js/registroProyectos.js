@@ -252,7 +252,7 @@ function cargarComboEntidades(){
 		}
 	});	
 }
-/*se repite*/
+
 function cargarComboConvocatorias(){
 	$.ajax({
 		method: "POST",

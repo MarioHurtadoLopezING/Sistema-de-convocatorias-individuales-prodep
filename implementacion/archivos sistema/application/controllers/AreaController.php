@@ -14,11 +14,15 @@ class AreaController extends CI_Controller{
     }
 
 	public function obtenerAreas(){
-		$areaEducativa = new AreaEducativa();
-		$areaEducativa->setIAreaEducativa(new AreaEducativaModelo());
-		$areaEducativa = $areaEducativa->obtenerAreas();
-		$areaEducativaJSON = array();
-		$areaEducativaJSON['areas'] = $areaEducativa;
-		echo json_encode($areaEducativaJSON);
+		if($this->session->userdata('idUsuario')){
+			$areaEducativa = new AreaEducativa();
+			$areaEducativa->setIAreaEducativa(new AreaEducativaModelo());
+			$areaEducativa = $areaEducativa->obtenerAreas();
+			$areaEducativaJSON = array();
+			$areaEducativaJSON['areas'] = $areaEducativa;
+			echo json_encode($areaEducativaJSON);
+		}else{
+			redirect('UsuarioController');
+		}
 	}
 }

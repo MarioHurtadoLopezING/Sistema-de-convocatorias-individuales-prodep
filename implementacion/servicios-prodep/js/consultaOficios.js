@@ -56,7 +56,6 @@ function cargarOficiosVista(){
 	}	
 }
 
-/*esta función se reptite*/
 function divLogo(){
 	let divImagenOficioRegistro = document.createElement('div');
 	divImagenOficioRegistro.classList.add('imagenProyectoRegistro','izquierda');
@@ -97,8 +96,6 @@ function iconosEdicion(tituloImagen,oficio){
 	divImagen.addEventListener('click',function(){
 		if(tituloImagen == 'ver'){
 			consultarOficio(oficio);
-		}else{
-			alert("esto es para editar");
 		}
 	});
 	return divImagen;

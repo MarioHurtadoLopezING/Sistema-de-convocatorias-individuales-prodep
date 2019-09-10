@@ -76,7 +76,7 @@
 			</div>
 			<div class="margin">
 				<input type="submit" name="" value="Guardar" class="btn boton margin btn-success">
-				<button type="button" name="" value="" class="btn boton margin btn-danger">Cancelar</button>
+				<a href="<?=base_url();?>index.php/ProyectoController/vista/consultarProyectos"><button type="button" name="" value="" class="btn boton margin btn-danger">Cancelar</button></a>
 			</div>
 		</form>
 		</div>

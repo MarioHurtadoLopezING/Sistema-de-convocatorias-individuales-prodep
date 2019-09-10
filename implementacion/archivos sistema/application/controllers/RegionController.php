@@ -14,11 +14,15 @@ class RegionController extends CI_Controller{
     }
 
     public function obtenerRegiones(){
-    	$region = new Region();
-    	$region->setIRegion(new RegionModelo());
-    	$region = $region->obtenerRegiones();
-    	$regionesJSON = array();
-    	$regionesJSON['regiones'] = $region;
-    	echo json_encode($regionesJSON);
+    	if($this->session->userdata('idUsuario')){
+            $region = new Region();
+            $region->setIRegion(new RegionModelo());
+            $region = $region->obtenerRegiones();
+            $regionesJSON = array();
+            $regionesJSON['regiones'] = $region;
+            echo json_encode($regionesJSON);
+        }else{
+            redirect('UsuarioController');
+        }
     }
 }

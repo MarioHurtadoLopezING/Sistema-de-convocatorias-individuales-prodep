@@ -1,6 +1,4 @@
-	<script>
-		var base_url = "<?php echo site_url();?>";
-	</script>
+	<script>var base_url = "<?php echo site_url();?>";</script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/objetos.js"></script> 
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/registroOficios.js"></script> 
 	<div class="contenido center">
@@ -47,7 +45,7 @@
 			</div>
 			<div class="margin">
 				<input type="submit" name="" value="Registrar" class="btn boton margin btn-success">
-				<button type="button" name="" value="" class="btn boton margin btn-danger">Cancelar</button>
+				<a href="<?=base_url();?>index.php/OficioController/vista/consultarOficios"><button type="button" name="" value="" class="btn boton margin btn-danger">Cancelar</button></a>
 			</div>
 		</form>
 	</div>

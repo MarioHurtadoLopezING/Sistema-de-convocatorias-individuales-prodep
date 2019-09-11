@@ -28,4 +28,16 @@ class BecarioModelo extends CI_Controller implements IBecario{
     	}
     	return	$becario;
 	}
+
+    public function obtenerBecarios(){
+        $consulta = $this->db->get('becario');
+        $becarios = array();
+        foreach ($consulta->result() as $row) {
+            $becario = array();
+            $becario['bec_nombre'] = $row->bec_nombre;
+            $becario['bec_correo'] = $row->bec_correo;
+            array_push($becarios, $becario);
+        }
+        return $becarios;
+    }
 }

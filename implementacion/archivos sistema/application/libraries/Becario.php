@@ -66,4 +66,7 @@ class Becario{
 	public function obtenerBecarioCorreo($correo){
 		return $this->iBecario->obtenerBecarioCorreo($correo);
 	}
+	public function obtenerBecarios(){
+		return $this->iBecario->obtenerBecarios();
+	}
 }

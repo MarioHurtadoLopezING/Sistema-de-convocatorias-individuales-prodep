@@ -33,4 +33,7 @@ class Director extends PersonalAdministrativo{
     public function obtenerPersonalId($idPersonal){
         return $this->iDirector->obtenerPersonalId($idPersonal);
     }
+    public function obtenerDirectores(){
+        return $this->iDirector->obtenerDirectores();
+    }
 }

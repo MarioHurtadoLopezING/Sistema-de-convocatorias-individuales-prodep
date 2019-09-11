@@ -6,4 +6,5 @@ interface IDocente{
     public function obtenerPersonalCorreo($correo);
     public function obtenerPersonalNumeroregistro($numeroPersonal);
     public function obtenerPersonalId($idPersonal);
+    public function obtenerDocentes();
 }

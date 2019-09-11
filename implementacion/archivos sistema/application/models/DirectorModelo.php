@@ -46,4 +46,16 @@ class DirectorModelo extends CI_Model implements IDirector{
         }
         return $director;
     }
+
+    public function obtenerDirectores(){
+        $consulta = $this->db->get('director');
+        $directores = array();
+        foreach ($consulta->result() as $row) {
+            $director = array();
+            $director['dir_nombre'] = $row->dir_nombre;
+            $director['dir_correo'] = $row->dir_correo;
+            array_push($directores, $director);
+        }
+        return $directores;
+    }
 }

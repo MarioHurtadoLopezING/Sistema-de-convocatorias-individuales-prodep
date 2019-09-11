@@ -46,4 +46,8 @@ class Docente extends PersonalAdministrativo{
     public function obtenerPersonalId($idPersonal){
         return $this->iDocente->obtenerPersonalId($idPersonal);
     }
+
+    public function obtenerDocentes(){
+        return $this->iDocente->obtenerDocentes();
+    }
 }

@@ -55,4 +55,17 @@ class DocenteModelo extends CI_Model implements IDocente{
         }
         return  $docente;
     }
+    public function obtenerDocentes(){
+        $consulta = $this->db->get('docente');
+        $docentes = array();
+        foreach ($consulta->result() as $row) {
+            $docente = array();
+            $docente['doc_numeroPersonal'] = $row->doc_numeroPersonal;
+            $docente['doc_nombre'] = $row->doc_nombre;
+            $docente['doc_correo'] = $row->doc_correo;
+            array_push($docentes, $docente);
+        }
+        return $docentes;
+    }
 }
+

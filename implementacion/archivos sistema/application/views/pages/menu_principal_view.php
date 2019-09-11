@@ -35,7 +35,7 @@
 			<div class="textoElementoMenu"><span class="esconder">Oficios</span></div>
 			<div class="imagenElementoMenu"><img src="<?=base_url('recursos/contrato.svg')?>"></div>
 		</div>
-		<div class="menuElemento">
+		<div class="menuElemento" id="divOtros" data-toggle="modal" data-target="#modalOtros">
 			<div class="textoElementoMenu"><span class="esconder">Registros</span></div>
 			<div class="imagenElementoMenu"><img src="<?=base_url('recursos/anadir.svg')?>"></div>
 		</div>
@@ -135,6 +135,47 @@
 								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
 							</div>
 							<span class="center">consultar convocatorias</span>
+						</div>  
+					</a>	 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Modal de otros -->
+	<div id="modalOtros" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title center">Convocatorias</h4>
+				</div>
+				<div class="modal-body center">
+					 <a href="<?=base_url();?>index.php/DocenteController">
+						<div class="item">
+							<div class="center">
+								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
+							</div>						
+							<span class="center">Consultar docentes</span>
+						</div>
+					</a>
+				 	<a href="<?=base_url();?>index.php/BecarioController">
+						<div class="item">
+							<div class="center">
+								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
+							</div>
+							<span class="center">consultar becarios</span>
+						</div>  
+					</a>
+					<a href="<?=base_url();?>index.php/DirectorController">
+						<div class="item">
+							<div class="center">
+								<img src="<?=base_url('recursos/lupa-para-buscar.svg')?>" class="iconoItem">
+							</div>
+							<span class="center">consultar directores</span>
 						</div>  
 					</a>	 
 				</div>

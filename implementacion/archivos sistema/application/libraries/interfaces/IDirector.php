@@ -5,4 +5,5 @@ interface IDirector{
     public function editarPersonal($director);
     public function obtenerPersonalCorreo($correo);
     public function obtenerPersonalId($idPersonal);
+    public function obtenerDirectores();
 }

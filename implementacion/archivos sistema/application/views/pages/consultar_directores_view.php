@@ -11,7 +11,7 @@
 		<div class="margin-sup">
 			<form id="formDirector">
 				<span class="esconder">Buscar director:</span>
-				<input type="input" name="" placeholder="Número de personal del director / correo" class="textbox tamano">
+				<input type="input" name="" placeholder="Número de personal del director / correo" class="textbox tamano" readonly="readonly">
 				
 				<button type="button" name="buscar" value="Buscar" class="btn btn-success" onclick="searchPrompt('', false)">Buscar</button>
 			</form>

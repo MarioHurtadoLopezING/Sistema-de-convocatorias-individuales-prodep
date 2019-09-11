@@ -9,7 +9,7 @@
 		<div class="margin-sup">
 			<form id="buscar">
 				<span class="esconder">Buscar docente:</span>
-				<input type="input" name="" placeholder="Número de personal del docente / correo" class="textbox tamano" id="texto">
+				<input type="input" name="" placeholder="Número de personal del docente / correo" class="textbox tamano" id="texto" readonly="readonly">
 				<button type="button" name="buscar" value="Buscar" class="btn btn-success" onclick="searchPrompt('', false)">Buscar</button>
 			</form>
 		</div>

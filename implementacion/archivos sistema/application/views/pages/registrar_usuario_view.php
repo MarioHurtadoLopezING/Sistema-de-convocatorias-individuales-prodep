@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="<?=base_url('css/bootstrap.min.css');?>" type="text/css">
     <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script> 
     <link rel="stylesheet" href="<?=base_url('css/inicioSesion_style.css');?>" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
     <img src="<?=base_url('recursos/prodep.png');?>" class="logoRegistro"/>

@@ -50,7 +50,7 @@ function cargarProyectosVista(){
 
 function divLogo(){
 	let divImagenProyectoRegistro = document.createElement('div');
-	divImagenProyectoRegistro.classList.add('imagenProyectoRegistro','izquierda');
+	divImagenProyectoRegistro.classList.add('esconder','imagenProyectoRegistro','izquierda');
 	let imagen = document.createElement('img');
 	imagen.src = "/servicios-prodep/recursos/proyectoRegistro.svg";
 	divImagenProyectoRegistro.appendChild(imagen);
@@ -60,9 +60,9 @@ function divLogo(){
 function datosProyecto(proyecto){
 	let divDatosProyecto = document.createElement('div');
 	divDatosProyecto.classList.add('datosProyecto');
-	let divNumeroPersonal = divDatoProyecto( "Número personal:",proyecto.docente.numeroPersonal);
-	let divResponsable =divDatoProyecto("Responsable:",proyecto.docente.nombre);
-	let divClaveProdep = divDatoProyecto("Folio PRODEP:",proyecto.claveProdep);
+	let divNumeroPersonal = divDatoProyecto( "Número personal: ",proyecto.docente.numeroPersonal);
+	let divResponsable =divDatoProyecto("<span class='esconder'>Responsable:</span> ",proyecto.docente.nombre);
+	let divClaveProdep = divDatoProyecto("Folio PRODEP: ",proyecto.claveProdep);
 	divDatosProyecto.appendChild(divNumeroPersonal);
 	divDatosProyecto.appendChild(divResponsable);
 	divDatosProyecto.appendChild(divClaveProdep);
@@ -121,7 +121,8 @@ function obtenerProyecto(proyecto){
 
 function iconosEdicion(tituloImagen,proyecto){
 	let divImagen = document.createElement("div");
-	divImagen.classList.add("imagenProyectoRegistroVista","logo");
+	tituloImagen == 'editar'?divImagen.classList.add("imagenProyectoRegistroVista","logo"):
+	divImagen.classList.add("esconder","imagenProyectoRegistroVista","logo");
 	let imagen = document.createElement("img");
 	imagen.src ="/servicios-prodep/recursos/"+tituloImagen+".svg";
 	divImagen.appendChild(imagen);

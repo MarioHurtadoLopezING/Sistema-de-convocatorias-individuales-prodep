@@ -29,10 +29,10 @@ class OficioController extends CI_Controller{
     	if($this->session->userdata('idUsuario')){
 			$personal = $this->obtenerPersonalId();
     		if($pagina == 'consultarOficios'){
-    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Oficios registrados'));
+    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Oficios <span class="esconder">registrados</span>'));
                 $this->load->view('pages/consultar_oficios_view');
     		}else if ($pagina == 'nuevoOficio'){
-    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Agregar oficio'));
+    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Agregar <span class="esconder">oficio</span>'));
     			$this->load->view('pages/nuevo_oficio_view');
     		}
 
@@ -71,7 +71,7 @@ class OficioController extends CI_Controller{
     public function editarOficio($idOficio){
         if($this->session->userdata('idUsuario')){
             $personal = $this->obtenerPersonalId();
-            $this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Editar oficio'));
+            $this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Editar <span class="esconder">oficio</span>'));
                 $this->load->view('pages/editar_oficio_view', array('idOficio'=>$idOficio));
         }else{
             redirect('UsuarioController');

@@ -5,11 +5,12 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/objetos.js"></script> 
 <script type="text/javascript" src="<?php echo base_url(); ?>js/consultaOficios.js"></script> 
 <script type="text/javascript" src="<?php echo base_url(); ?>js/buscador.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<div class="contenido center">
 		<div class="margin-sup">
 			<form>
-				<span>Buscar oficio:</span>
+				<span class="esconder">Buscar oficio:</span>
 				<input type="input" name="" placeholder="Número de personal del docente / correo" class="textbox tamano">
 				
 				<button type="button" name="buscar" value="Buscar" class="btn btn-success" onclick="searchPrompt('', false)">Buscar</button>

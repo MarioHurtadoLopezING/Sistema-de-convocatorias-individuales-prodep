@@ -28,13 +28,13 @@ class RegistroConvocatoriaController extends CI_Controller{
     	if($this->session->userdata('idUsuario')){
     		$personal = $this->obtenerPersonalId();
     		if($pagina == 'consultarRegistrosConvocatorias'){
-    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Convocatorias registradas'));
+    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Convocatorias <span class="esconder">registradas</span>'));
 				$this->load->view('pages/consultar_convocatorias_view');
     		}else if($pagina == 'nuevaConvocatoria'){
-    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Nueva convocatoria'));
+    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Nueva <span class="esconder">convocatoria</span>'));
 				$this->load->view('pages/nuevo_convocatoria_view');
     		}else if($pagina == 'editarConvocatoria'){
-    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Editar convocatoria'));
+    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Editar <span class="esconder">convocatoria</span>'));
 				$this->load->view('pages/editar_convocatoria_view', array('idConvocatoria'=>$idConvocatoria));
     		}else{
     			show_404();

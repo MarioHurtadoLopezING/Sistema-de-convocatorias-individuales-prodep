@@ -46,6 +46,9 @@ body{
     .datosRegistro{
         width: 90%;
     }
+    .datosUsuario{
+        width: 70%;
+    }
     .btn1{
         width: 90%;
         display: inline-block;

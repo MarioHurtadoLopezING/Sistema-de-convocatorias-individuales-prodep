@@ -34,7 +34,8 @@ function cargarConvocatoriasVista(convocatorias){
 
 function iconosEdicion(tituloImagen,convocatoria){
 	let divImagen = document.createElement("div");
-	divImagen.classList.add("imagenProyectoRegistroVista","logo");
+	tituloImagen == 'editar'?divImagen.classList.add("imagenProyectoRegistroVista","logo"):
+	divImagen.classList.add("esconder","imagenProyectoRegistroVista","logo");
 	let imagen = document.createElement("img");
 	imagen.src ="/servicios-prodep/recursos/"+tituloImagen+".svg";
 	divImagen.appendChild(imagen);
@@ -50,7 +51,7 @@ function datosConvocatoria(convocatoria){
 	let divDatosConvocatoria = document.createElement('div');
 	divDatosConvocatoria.classList.add('datosProyecto');
 	let divNumeroPersonal = divDatoConvocatoria( "Número personal:",convocatoria['docente']['doc_numeroPersonal']);
-	let divResponsable =divDatoConvocatoria("Responsable:",convocatoria['docente']['doc_nombre']);
+	let divResponsable =divDatoConvocatoria("<span class='esconder'>Responsable:</span> ",convocatoria['docente']['doc_nombre']);
 	let divClaveProdep = divDatoConvocatoria("Folio PRODEP:",convocatoria['proyecto']['pro_folioProdep']);
 	divDatosConvocatoria.appendChild(divNumeroPersonal);
 	divDatosConvocatoria.appendChild(divResponsable);
@@ -71,7 +72,7 @@ function divDatoConvocatoria(titulo,datoConvocatoria){
 
 function divLogo(){
 	let divImagenProyectoRegistro = document.createElement('div');
-	divImagenProyectoRegistro.classList.add('imagenProyectoRegistro','izquierda');
+	divImagenProyectoRegistro.classList.add('esconder','imagenProyectoRegistro','izquierda');
 	let imagen = document.createElement('img');
 	imagen.src = "/servicios-prodep/recursos/proyectoRegistro.svg";
 	divImagenProyectoRegistro.appendChild(imagen);

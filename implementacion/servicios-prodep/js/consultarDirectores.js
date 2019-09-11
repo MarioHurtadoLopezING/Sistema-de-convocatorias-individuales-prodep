@@ -28,7 +28,7 @@ function mostrarDirectores(directores){
 function datosDocente(director){
 	let divDatosDocente = document.createElement('div');
 	divDatosDocente.classList.add('datosProyecto');
-	let divNumeroPersonal = divDatoConvocatoria( "Nombre del director: ",director['dir_nombre']);
+	let divNumeroPersonal = divDatoConvocatoria( "<span class='esconder'>Nombre del director:</span> ",director['dir_nombre']);
 	let divResponsable =divDatoConvocatoria("Correo: ",director['dir_correo']);
 	divDatosDocente.appendChild(divNumeroPersonal);
 	divDatosDocente.appendChild(divResponsable);
@@ -46,7 +46,7 @@ function divDatoConvocatoria(titulo,datoConvocatoria){
 }
 function divLogo(){
 	let divImagenProyectoRegistro = document.createElement('div');
-	divImagenProyectoRegistro.classList.add('imagenProyectoRegistro','izquierda');
+	divImagenProyectoRegistro.classList.add('esconder','imagenProyectoRegistro','izquierda');
 	let imagen = document.createElement('img');
 	imagen.src = "/servicios-prodep/recursos/proyectoRegistro.svg";
 	divImagenProyectoRegistro.appendChild(imagen);

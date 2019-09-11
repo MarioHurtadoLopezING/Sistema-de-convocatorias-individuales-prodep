@@ -48,7 +48,7 @@
 	.contenido{
 		right: 0px;
 		margin-left: 0em;
-		width: calc(100% - 5em);
+		width: calc(100% - 3.5em);
 	}
 	.esconder{
 	    display: none;

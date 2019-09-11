@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/objetos.js"></script> 
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/registroOficios.js"></script> 
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/editarOficio.js"></script> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<div class="contenido center">
 		<form class="margin-sup" id="editarOficio">
 			<div class="margin">

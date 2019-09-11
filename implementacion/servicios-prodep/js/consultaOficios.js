@@ -58,7 +58,7 @@ function cargarOficiosVista(){
 
 function divLogo(){
 	let divImagenOficioRegistro = document.createElement('div');
-	divImagenOficioRegistro.classList.add('imagenProyectoRegistro','izquierda');
+	divImagenOficioRegistro.classList.add('esconder','imagenProyectoRegistro','izquierda');
 	let imagen = document.createElement('img');
 	imagen.src = "/servicios-prodep/recursos/proyectoRegistro.svg";
 	divImagenOficioRegistro.appendChild(imagen);
@@ -69,7 +69,7 @@ function datosOficio(oficio){
 	let divDatosProyecto = document.createElement('div');
 	divDatosProyecto.classList.add('datosProyecto');
 	let divNumeroPersonal = divDatoOficio( "Número personal:",oficio.docente.numeroPersonal);
-	let divResponsable =divDatoOficio("Responsable:",oficio.docente.nombre);
+	let divResponsable =divDatoOficio("<span class='esconder'>Responsable:</span> ",oficio.docente.nombre);
 	let divClaveProdep = divDatoOficio("Folio PRODEP:",oficio.folioProdep);
 	divDatosProyecto.appendChild(divNumeroPersonal);
 	divDatosProyecto.appendChild(divResponsable);
@@ -89,7 +89,8 @@ function divDatoOficio(titulo,oficio){
 }
 function iconosEdicion(tituloImagen,oficio){
 	let divImagen = document.createElement("div");
-	divImagen.classList.add("imagenProyectoRegistroVista","logo");
+	tituloImagen == 'editar'?divImagen.classList.add("imagenProyectoRegistroVista","logo"):
+	divImagen.classList.add("esconder","imagenProyectoRegistroVista","logo");
 	let imagen = document.createElement("img");
 	imagen.src ="/servicios-prodep/recursos/"+tituloImagen+".svg";
 	divImagen.appendChild(imagen);

@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script> 
 	<link rel="stylesheet" href="<?=base_url('css/menuPrincipal_style.css');?>" type="text/css">
 	<link rel="stylesheet" href="<?=base_url('css/proyecto_style.css');?>" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
 	<header id="cabecera">

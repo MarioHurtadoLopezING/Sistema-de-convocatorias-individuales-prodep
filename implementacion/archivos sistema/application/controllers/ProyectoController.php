@@ -26,13 +26,13 @@ class ProyectoController extends CI_Controller{
     	if($this->session->userdata('idUsuario')){
     		$personal = $this->obtenerPersonalId();
     		if($pagina == 'consultarProyectos'){
-    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Proyectos registrados'));
+    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Proyectos <span class="esconder">registrados</span>'));
     			$this->load->view('pages/consultar_proyectos_view');
     		}else if($pagina == 'nuevoProyecto'){
-    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Agregar proyecto'));
+    			$this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Agregar <span class="esconder">proyecto</span>'));
     			$this->load->view('pages/nuevo_proyecto_view');
     		}else if ($pagina == 'editarProyecto'){
-                $this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Editar proyecto'));
+                $this->load->view('pages/menu_principal_view',array('nombrePersonal'=>$personal->getNombre(),'tituloPagina'=> 'Editar <span class="esconder">proyecto</span>'));
                 $this->load->view('pages/editar_proyecto_view',array('idProyecto'=>$idProyecto));
             }else{
     			show_404();
